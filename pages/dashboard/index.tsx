@@ -6,6 +6,8 @@ export default function DashboardHome() {
     <>
       <Head>
         <title>Fies Buddy</title>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0091ff" />
       </Head>
       <DashboardLayout>
         <h1>data</h1>
@@ -13,3 +15,4 @@ export default function DashboardHome() {
     </>
   );
 }
+ 
