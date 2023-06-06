@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./icomoon.eot?e7yhz3');
+  src:  url('./icomoon.eot?e7yhz3#iefix') format('embedded-opentype'),
+    url('./icomoon.ttf?e7yhz3') format('truetype'),
+    url('./icomoon.woff?e7yhz3') format('woff'),
+    url('./icomoon.svg?e7yhz3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrows_bottom_chevron_direction_move_icon:before {
+  content: "\e900";
+}
+.icon-arrow_chevron_direction_down_move_icon:before {
+  content: "\e901";
+}
+.icon-arrows_chevron_direction_left_move_icon:before {
+  content: "\e902";
+}
+.icon-arrow_back_chevron_direction_left_icon:before {
+  content: "\e903";
+}
+.icon-google_brand_branding_logo_network_icon .path1:before {
+  content: "\e906";
+  color: rgb(251, 188, 5);
+}
+.icon-google_brand_branding_logo_network_icon .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(234, 67, 53);
+}
+.icon-google_brand_branding_logo_network_icon .path3:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(52, 168, 83);
+}
+.icon-google_brand_branding_logo_network_icon .path4:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(66, 133, 244);
+}
+.icon-twitter_bird_icon-1:before {
+  content: "\e913";
+}
+.icon-fb_facebook_facebook-logo_icon-1:before {
+  content: "\e916";
+}
+.icon-ballroom:before {
+  content: "\e904";
+}
+.icon-bell:before {
+  content: "\e905";
+}
+.icon-calender:before {
+  content: "\e907";
+}
+.icon-checkdb:before {
+  content: "\e909";
+}
+.icon-clock:before {
+  content: "\e90a";
+}
+.icon-close:before {
+  content: "\e90b";
+}
+.icon-competitor:before {
+  content: "\e90c";
+}
+.icon-dashboard:before {
+  content: "\e90d";
+}
+.icon-email:before {
+  content: "\e917";
+}
+.icon-eye_slash_icon:before {
+  content: "\e90f";
+}
+.icon-eye_view_icon:before {
+  content: "\e910";
+}
+.icon-menu:before {
+  content: "\e912";
+}
+.icon-rresult:before {
+  content: "\e914";
+}
+.icon-setting:before {
+  content: "\e915";
+}
