@@ -7,8 +7,8 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
       <section id="dashboard_layout">
         <Sidebar isShow={true} />
         <main id="dashboard_main">
-          <Header />
-          <div>{children}</div>
+          <Header userName={"Travis"} hasNotifications={true} />
+          <section className="dash_content">{children}</section>
         </main>
       </section>
     </>

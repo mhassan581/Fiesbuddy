@@ -1,0 +1,41 @@
+@import "../variables.scss";
+
+$tile_radius: 30px;
+
+.event_tile_grid_wrapper {
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .event_tiles {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: -10px;
+        padding-top: 15px;
+        .event_tile_item {
+            width: 432px;
+            overflow: hidden;
+            border-radius: $tile_radius;
+            margin: 10px;
+            box-shadow: 0px 24px 49px rgba(136, 136, 136, 0.15);
+            background-color: $white;
+            .visual {
+                height: 230px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+            .description {
+                padding: 25px;
+                .title {
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

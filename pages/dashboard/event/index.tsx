@@ -1,6 +1,5 @@
 import Head from "next/head";
-import DashboardLayout from "../../components/DashboardLayout";
-import EventTileGrid from "@/components/DashboardLayout/EventTileGrid/EventTileGrid";
+import DashboardLayout from "../../../components/DashboardLayout";
 
 export default function DashboardHome() {
   return (
@@ -11,8 +10,9 @@ export default function DashboardHome() {
         <meta name="theme-color" content="#0091ff" />
       </Head>
       <DashboardLayout>
-        {<EventTileGrid title={"Events List:"} />}
+        <h1>Event</h1>
       </DashboardLayout>
     </>
   );
 }
+ 

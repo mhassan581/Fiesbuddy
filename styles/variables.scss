@@ -3,8 +3,20 @@ $white: #ffffff;
 $color_primary: #0091ff;
 $color_danger: #ff002b;
 $color_success: #6ad742;
+$color_grey: #949494;
+$color_notifi_red: #B81C1C;
+$main_dash_bg: #f8f8f8;
+$main_dash_y_padding: 40px;
 $theme_btn_primary_grad: linear-gradient(142.5deg, #95cff5 1.12%, #61bbf9 98.54%);
 $theme_font: "Raleway";
+
+/*
+ FROM CONTROL
+*/
+$fmc_y_padding: 15px;
+$fmc_x_padding: 15px;
+$fmc_height: 64px;
+$fmc_height_med: 50px;
 
 @font-face {
     font-family: "Raleway";
