@@ -1,0 +1,98 @@
+@import "../variables.scss";
+
+.form_wrap {
+    height: auto;
+    width: 100%;
+    padding: 0 3.5vw;
+
+    .form{
+        margin-top: 2em;
+    }
+    .form_title {
+        font-size: 56px;
+        font-weight: 700;
+        color: $black;
+    }
+    .para {
+        font-size: 24px;
+        color: $black;
+        margin: 0.4em 0;
+    }
+
+    .form_group {
+        display: block;
+        margin: 1em 0;
+        label {
+            display: block;
+            margin: 0.4em 0;
+            color: $color_grey;
+        }
+        .icon_group {
+            display: block;
+            width: 100%;
+            position: relative;
+            .icon {
+                font-size: 18px;
+                color: $color_grey;
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all 0.3s;
+            }
+            input {
+                padding-left: 50px;
+                &:focus {
+                    ~ .icon {
+                        color: $black;
+                    }
+                }
+            }
+        }
+        .input {
+            border-color: rgb(148, 148, 148, 50%);
+            width: 100%;
+            font-size: 18px;
+            height: 64px;
+            &:focus {
+                box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
+            }
+        }
+    }
+
+    .btn_submit {
+        width: 100%;
+        border-radius: 50px;
+        background: linear-gradient(142.5deg, #95cff5 1.12%, #61bbf9 98.54%);
+        color: $white;
+        font-size: 22px;
+        font-weight: 700;
+        border: 0;
+        outline: 0;
+        height: 64px;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+            box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
+        }
+    }
+
+    @media (max-width: 1600px) {
+        .form_title {
+            font-size: 5vmin;
+        }
+        .para {
+            font-size: 18px;
+        }
+        .form_group {
+            .input {
+                height: 50px;
+                font-size: 16px;
+            }
+        }
+        .btn_submit {
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+}

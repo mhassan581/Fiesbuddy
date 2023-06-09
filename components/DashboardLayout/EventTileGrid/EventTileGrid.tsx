@@ -32,13 +32,32 @@ export default function EventTileGrid(props: { title: String }) {
   if (!data) {
     return (
       <>
-        <p>Loading...</p>
+        <div
+          className={`${style.event_tile_grid_wrapper + " " + style.loading} `}
+        >
+          <h3 className={style.title}>{props.title}</h3>
+          <div className={style.event_tiles}>
+            {[...Array(6)].map((ev, index) => {
+              return (
+                <EventTileItem
+                  key={index}
+                  title={``}
+                  excerpt={``}
+                  eventDate={new Date()}
+                  eventTime={``}
+                  image={``}
+                  facebookURL={`#`}
+                  twitterURL={`#`}
+                  googleURL={`#`}
+                />
+              );
+            })}
+          </div>
+        </div>
       </>
     );
   }
   if (data) {
-    // console.log(data.record.events[0].id);
-
     return (
       <>
         <div className={style.event_tile_grid_wrapper}>
@@ -48,7 +67,7 @@ export default function EventTileGrid(props: { title: String }) {
               (ev: {
                 id: Key | null | undefined;
                 title: String;
-                date: String;
+                date: Date;
                 time: String;
                 excerpt: String;
               }) => {
@@ -59,7 +78,10 @@ export default function EventTileGrid(props: { title: String }) {
                     eventDate={ev.date}
                     eventTime={ev.time}
                     excerpt={ev.excerpt}
-                    image={""}
+                    image={"/sample-images/event_3.png"}
+                    facebookURL={`#`}
+                    twitterURL={`#`}
+                    googleURL={`#`}
                   />
                 );
               }

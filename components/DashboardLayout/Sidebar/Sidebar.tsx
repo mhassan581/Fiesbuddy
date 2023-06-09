@@ -25,7 +25,8 @@ export default function Sidebar(props: { isShow: boolean }) {
           </div>
           <div className="logout">
             <button>
-              <i className="icon-logout"></i>Logout
+              <i className="icon icon-loginlogout"></i>
+              Logout
             </button>
           </div>
         </nav>
