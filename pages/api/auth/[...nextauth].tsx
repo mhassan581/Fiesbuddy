@@ -6,9 +6,8 @@ import clientPromise from "../../../public/utils/MongoDBClient";
 export default NextAuth({
   providers: [
     GmailProvider({
-      clientId:
-        "86107342009-2grs4pg0lqpohnb26iiqd24m0r9kcah9.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId:`${process.env.GOGOLE_AUTH_ID}`,
+      clientSecret: `${process.env.GOOGLE_AUTH_SECRET}`,
     }),
   ],
   adapter: MongoDBAdapter(clientPromise),

@@ -1,4 +1,5 @@
 import PreLoginLayout from "@/components/PreLoginLayout";
+import CustomPassword from "@/components/PreLoginLayout/CustomPassword/CustomPasswordField";
 import SocialLogin from "@/components/PreLoginLayout/SocialLogin/SocialLogin";
 import style from "@/styles/prelogin/prelogin.module.scss";
 import Link from "next/link";
@@ -9,12 +10,16 @@ export default function Login() {
 
   return (
     <>
-      <PreLoginLayout title={"Welcome Back"}>
-        <div className={`${style.form_wrap} form_wrap`}>
+      <PreLoginLayout
+        title={"Welcome Back"}
+        styleClass={`login_layout`}
+        onBack={``}
+      >
+        <div className={`${style.form_wrap + " " + style.login_form}`}>
           <h1 className={style.form_title}>Hey There, Log In Now!</h1>
           <p className={style.para}>
             Don’t have an account?
-            <a href="">
+            <a href="/register">
               &nbsp;
               <b>Create New!</b>
             </a>
@@ -35,27 +40,10 @@ export default function Login() {
               </span>
             </div>
             {/* PASSWORD */}
-            <div className={style.form_group}>
-              <label htmlFor="txtEmail">Password*</label>
-              <span className={style.icon_group}>
-                <input
-                  type={isShowPass ? "text" : "password"}
-                  id="txtPassword"
-                  className={`form-control ${style.input}`}
-                  name="txtPassword"
-                  placeholder="password"
-                />
-                <span
-                  className={`${style.icon} ${
-                    isShowPass ? "icon-eye_slash_icon" : "icon-eye_view_icon"
-                  }`}
-                  onClick={() => setIsShowPass(!isShowPass)}
-                ></span>
-              </span>
-            </div>
+            <CustomPassword placeholder="Password" />
             {/* FORGET PASSWORD */}
             <div className={`${style.form_group} text-right`}>
-              <Link href={`#`}>Forget Password?</Link>
+              <Link href={`./forgot-password`}>Forget Password?</Link>
             </div>
             {/* SUBMIT / LOGIN */}
             <div className={`${style.form_group}`}>
