@@ -17,6 +17,7 @@ export default function DashboardHome() {
       <DashboardLayout>
         {<EventTileGrid title={"Events List:"} />}
       </DashboardLayout>
+        
     </>
   );
 }

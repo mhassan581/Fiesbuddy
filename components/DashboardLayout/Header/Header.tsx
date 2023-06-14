@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
+
 export default function Header(props: {
   userName: String;
   hasNotifications: Boolean;
 }) {
+
+  const [modalActive, setActiveModal] = useState(false);
+
+  useEffect(() => {
+    const sectionModal = document.getElementById("nf_modal");
+    if (sectionModal) {
+      if (modalActive) {
+        sectionModal.classList.add('notification_open');
+      }
+    }
+  }, [modalActive]);
+  
   return (
     <>
       <header id="dash_top_header">
@@ -28,9 +42,10 @@ export default function Header(props: {
           className={`notification_button ${
             props.hasNotifications ? "has_notifications" : " "
           }`}
-          aria-label="Notifications"
+          aria-label="Notifications" onClick={() => setActiveModal(!modalActive)}
         >
           <i className="icon icon-bell"></i>
+          <span className="notification_active"></span>
         </button>
       </header>
     </>
