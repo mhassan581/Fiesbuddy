@@ -45,7 +45,8 @@ b {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+textarea {
   &.form-control {
     border: 1px solid transparent;
     border-radius: 50px;
@@ -123,7 +124,11 @@ section#prelogin_layout {
       > .inner {
         height: 100%;
         width: 100%;
-        background: linear-gradient(145.1deg, rgba(255, 255, 255, 0.12) -23.96%, rgba(255, 255, 255, 0.08) 131.78%);
+        background: linear-gradient(
+          145.1deg,
+          rgba(255, 255, 255, 0.12) -23.96%,
+          rgba(255, 255, 255, 0.08) 131.78%
+        );
         border-radius: 50px;
         display: flex;
         flex-direction: column;
@@ -190,7 +195,11 @@ section#prelogin_layout {
         height: 200px;
         width: 200px;
         position: absolute;
-        background: linear-gradient(145.14deg, #95cff5 -20.07%, #61bbf9 123.16%);
+        background: linear-gradient(
+          145.14deg,
+          #95cff5 -20.07%,
+          #61bbf9 123.16%
+        );
         z-index: -1;
         border-radius: 100%;
         filter: blur(100px);

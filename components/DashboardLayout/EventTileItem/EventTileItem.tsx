@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import style from "@/styles/dashboard/eventTileGrid.module.scss";
 import moment from "moment";
-import FormatTime24Hour from "../../../public/utils/FormatTime24Hour";
+import FormatTime24Hour from "../../../utils/FormatTime24Hour";
 // import Link from "next/link";
 
 export default function EventTileItem(props: {

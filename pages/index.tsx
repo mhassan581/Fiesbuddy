@@ -19,10 +19,10 @@ export default function Login() {
           <h1 className={style.form_title}>Hey There, Log In Now!</h1>
           <p className={style.para}>
             Don’t have an account?
-            <a href="/register">
+            <Link href="/register">
               &nbsp;
               <b>Create New!</b>
-            </a>
+            </Link>
           </p>
           <form action="" className={style.form}>
             {/* EMAIL */}
