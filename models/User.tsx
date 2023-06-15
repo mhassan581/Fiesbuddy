@@ -22,6 +22,11 @@ const UserSchema = new Schema({
     type: Boolean,
     required: [false],
   },
+  userRole: {
+    type: String,
+    required: [true, "User role is required"],
+    select: true,
+  },
 });
 
 const User = models.User || model("User", UserSchema);

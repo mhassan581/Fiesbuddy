@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import UserSidebarList from "./UserSidebarList";
 export default function Sidebar(props: { isShow: boolean }) {
-
   const [isActive, setActive] = useState(false);
   const [isActive2, setActive2] = useState(false);
-  
 
   useEffect(() => {
     const section = document.getElementById("dashboard_layout");
     if (section) {
       if (isActive) {
-        section.classList.add('sidebar-collapse');
+        section.classList.add("sidebar-collapse");
       } else {
-        section.classList.remove('sidebar-collapse');
+        section.classList.remove("sidebar-collapse");
       }
     }
   }, [isActive]);
@@ -23,29 +22,38 @@ export default function Sidebar(props: { isShow: boolean }) {
       if (section2) {
         if (window.innerWidth < 768) {
           if (isActive2) {
-            section2.classList.add('mobile');
+            section2.classList.add("mobile");
           } else {
-            section2.classList.remove('mobile');
-            section2.classList.remove('sidebar-collapse');
+            section2.classList.remove("mobile");
+            section2.classList.remove("sidebar-collapse");
           }
         }
       }
-    }
+    };
     window.addEventListener("resize", handleResize);
     handleResize();
-   
   }, [isActive2]);
-
-
-
 
   return (
     <>
-      <button className="humburger" onClick={() => setActive2(!isActive2)}>
+      <button
+        className="humburger"
+        onClick={() => setActive2(!isActive2)}
+        aria-label="Toggle Sidebar"
+      >
         <i className="icon-burger_line_list_menu_nav_icon"></i>
       </button>
       <aside id="dashboard_sidebar">
-        <button className="togglebtn" onClick={() => { setActive2(!isActive2); setActive(!isActive); }}><i className="icon-arrow_back_chevron_direction_left_icon"></i></button>
+        <button
+          className="togglebtn"
+          onClick={() => {
+            setActive2(!isActive2);
+            setActive(!isActive);
+          }}
+          aria-label="Toggle Sidebar"
+        >
+          <i className="icon-arrow_back_chevron_direction_left_icon"></i>
+        </button>
         <nav>
           <div className="nav_brand">
             <Link href={"/dashboard"} aria-label="Dashboard Home">
@@ -53,18 +61,7 @@ export default function Sidebar(props: { isShow: boolean }) {
             </Link>
           </div>
           <div className="nav_list">
-            <ul>
-              <li>
-                <a href="#" className="active">
-                  <i className="icon-dashboard"></i> Dashboard
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="icon-setting"></i> Settings
-                </a>
-              </li>
-            </ul>
+            <UserSidebarList />
           </div>
           <div className="logout">
             <button>

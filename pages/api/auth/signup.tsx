@@ -28,11 +28,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       const hashedPassword = await hash(password, 12);
 
+      const userRole = "user";
+      
       User.create({
         name,
         email,
         password: hashedPassword,
         emailVerified: false,
+        userRole: userRole,
       })
         .then((result) => {
           return res.status(201).json({
