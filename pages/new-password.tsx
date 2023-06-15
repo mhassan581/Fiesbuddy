@@ -15,9 +15,17 @@ export default function NewPassword() {
           <h1 className={style.form_title}>Create Your New Password!</h1>
           <form action="" className={style.form}>
             {/* PASSWORD 1*/}
-            <CustomPassword placeholder="Password" />
+            <CustomPassword
+              placeholder="Password"
+              id="password"
+              name="password"
+            />
             {/* CONFIRM PASSWORD */}
-            <CustomPassword placeholder="Confirm Password" />
+            <CustomPassword
+              placeholder="Confirm Password"
+              id="confirmPassword"
+              name="confirmPassword"
+            />
             {/* SUBMIT / LOGIN */}
             <div className={`${style.form_group}`}>
               <button id="login" className={`${style.btn_submit}`}>

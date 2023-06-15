@@ -1,7 +1,12 @@
 import style from "@/styles/prelogin/prelogin.module.scss";
 import { useState } from "react";
 
-export default function CustomPassword(props: { placeholder: string }) {
+export default function CustomPassword(props: {
+  placeholder: string;
+  name: string;
+  id: string;
+  onChange: any;
+}) {
   const [isShowPass, setIsShowPass] = useState(false);
   return (
     <>
@@ -10,10 +15,12 @@ export default function CustomPassword(props: { placeholder: string }) {
         <span className={style.icon_group}>
           <input
             type={isShowPass ? "text" : "password"}
-            id="txtPassword"
+            id={props.id}
             className={`form-control ${style.input}`}
-            name="txtPassword"
+            name={props.name}
             placeholder={`${props.placeholder}`}
+            required
+            onChange={props.onChange}
           />
           <span
             className={`${style.icon} ${

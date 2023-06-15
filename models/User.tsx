@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     required: [true, "Password is required"],
     select: true,
   },
+  emailVerified: {
+    type: Boolean,
+    required: [false],
+  },
 });
 
 const User = models.User || model("User", UserSchema);

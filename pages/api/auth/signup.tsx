@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ error: "Data is missing" });
     }
 
-    const { userName, email, password } = req.body;
+    const { email, name, password, emailVerified } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -28,7 +28,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       const hashedPassword = await hash(password, 12);
 
-      User.create({ userName, email, password: hashedPassword })
+      User.create({
+        name,
+        email,
+        password: hashedPassword,
+        emailVerified: false,
+      })
         .then((result) => {
           return res.status(201).json({
             success: true,

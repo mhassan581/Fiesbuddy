@@ -3,205 +3,200 @@
 $tile_radius: 30px;
 
 .event_tile_grid_wrapper {
-    > .title {
-        font-size: 28px;
-        font-weight: 700;
-        @media (max-width: 767px) {
-            font-size: 22px;
-        }
+  > .title {
+    font-size: 28px;
+    font-weight: 700;
+    @media (max-width: 767px) {
+      font-size: 22px;
     }
+  }
+  .event_tiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: -10px;
+    padding-top: 35px;
+    .event_tile_item {
+      width: 432px;
+      overflow: hidden;
+      border-radius: $tile_radius;
+      margin: 10px;
+      box-shadow: 0px 24px 49px rgba(136, 136, 136, 0.15);
+      background-color: $white;
+      flex: 1 0 30%;
+      cursor: pointer;
+      .visual {
+        width: 100%;
+        height: 230px;
+        overflow: hidden;
+        display: block;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: all 0.3s;
+        }
+
+        @media (max-width: 1600px) {
+          height: 190px;
+        }
+        @media (max-width: 767px) {
+          height: 120px;
+        }
+      }
+      .description {
+        padding: 25px;
+        display: block;
+        .title {
+          color: $black;
+          font-size: 24px;
+          font-weight: 700;
+        }
+        .meta {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 18px;
+          color: $color_grey;
+          > span {
+            display: flex;
+            align-items: center;
+            .icon {
+              margin-right: 5px;
+            }
+          }
+        }
+        .excerpt {
+          margin-top: 25px;
+          font-size: 18px;
+          color: $color_grey;
+          line-height: 150%;
+          display: -webkit-box;
+          box-orient: vertical;
+          -webkit-box-orient: vertical;
+          -moz-box-orient: vertical;
+          line-clamp: 3;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          transition: all 0.3s;
+        }
+        .social_links {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 15px;
+          li {
+            margin-right: 15px;
+            font-size: 16px;
+            a {
+              &.facebook {
+                color: $color_faceook;
+              }
+              &.twitter {
+                color: $color_twitter;
+              }
+            }
+          }
+        }
+
+        @media (max-width: 1600px) {
+          padding: 16px;
+          .title {
+            font-size: 20px;
+          }
+          .meta {
+            font-size: 16px;
+          }
+          .excerpt {
+            font-size: 16px;
+            margin-top: 15px;
+          }
+        }
+
+        @media (max-width: 500px) {
+          .social_links {
+            li {
+              margin-right: 12px;
+              font-size: 12px;
+            }
+          }
+          .excerpt {
+            font-size: 13px;
+            margin-top: 10px;
+          }
+          .meta {
+            font-size: 12px;
+            // display: block;
+            > span {
+              margin-bottom: 5px;
+            }
+          }
+          .title {
+            font-size: 14px;
+          }
+          padding: 8px;
+        }
+      }
+
+      &:hover {
+        .visual {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      @media (max-width: 1300px) {
+        width: 100%;
+        flex: 0 1 45%;
+      }
+
+      @media (max-width: 550px) {
+        flex: 1 0 100%;
+        .visual{
+            height: 225px;
+        }
+      }
+    }
+    @media (max-width: 1300px) {
+      justify-content: space-between;
+    }
+  }
+
+  &.loading {
     .event_tiles {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-       
-        margin: -10px;
-        padding-top: 35px;
-        .event_tile_item {
-            width: 432px;
-            overflow: hidden;
-            border-radius: $tile_radius;
-            margin: 10px;
-            box-shadow: 0px 24px 49px rgba(136, 136, 136, 0.15);
-            background-color: $white;
-            flex: 1 0 30%;
-            cursor: pointer;
-            .visual {
-                width: 100%;
-                height: 230px;
-                overflow: hidden;
-                display: block;
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                    transition: all 0.3s;
-                }
-
-                @media (max-width: 1600px) {
-                    height: 190px;
-                }
-                @media (max-width: 767px) {
-                    height: 120px;
-                }
-            }
-            .description {
-                padding: 25px;
-                display: block;
-                .title {
-                    color: $black;
-                    font-size: 24px;
-                    font-weight: 700;
-                }
-                .meta {
-                    margin-top: 10px;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: space-between;
-                    font-size: 18px;
-                    color: $color_grey;
-                    > span {
-                        display: flex;
-                        align-items: center;
-                        .icon {
-                            margin-right: 5px;
-                        }
-                    }
-                }
-                .excerpt {
-                    margin-top: 25px;
-                    font-size: 18px;
-                    color: $color_grey;
-                    line-height: 150%;
-                    display: -webkit-box;
-                    box-orient: vertical;
-                    -webkit-box-orient: vertical;
-                    -moz-box-orient: vertical;
-                    line-clamp: 3;
-                    -webkit-line-clamp: 3;
-                    overflow: hidden;
-                }
-                .social_links {
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    margin-top: 15px;
-                    li {
-                        margin-right: 15px;
-                        font-size: 16px;
-                        a {
-                            &.facebook {
-                                color: $color_faceook;
-                            }
-                            &.twitter {
-                                color: $color_twitter;
-                            }
-                        }
-                    }
-                }
-
-                @media (max-width: 1600px) {
-                    padding: 16px;
-                    .title {
-                        font-size: 20px;
-                    }
-                    .meta {
-                        font-size: 16px;
-                    }
-                    .excerpt {
-                        font-size: 16px;
-                        margin-top: 15px;
-                    }
-                }
-                
-
-                @media (max-width: 500px) {
-                    
-                    .social_links {
-                        li {
-                            margin-right: 12px;
-                            font-size: 12px;
-                            
-                        }
-                    }
-                    .excerpt {
-                        font-size: 13px;
-                        margin-top: 10px;
-                    }
-                    .meta {
-                        font-size: 12px;
-                        // display: block;
-                        > span {
-                            margin-bottom: 5px;
-                        }
-                    }
-                    .title {
-                        font-size: 14px;
-                    }
-                    padding: 8px;
-                }
-            }
-
-            &:hover {
-                .visual {
-                    img {
-                        transform: scale(1.1);
-                    }
-                }
-            }
-
-            @media (max-width: 1300px) {
-                max-width: 432px;
-                flex: 0 1 46.8%;
-            }
-            @media (max-width: 767px) {
-                max-width: 432px;
-                flex: 0 1 44%;
-                border-radius: 10px;
-            }
-            @media (max-width: 500px) {
-                flex: 0 1 100%;
-            }
+      .event_tile_item {
+        .visual {
+          background-color: $color_grey_loading;
+          img {
+            opacity: 0;
+          }
         }
-        @media (max-width: 767px) {
-            padding-top: 20px;
-            justify-content: space-around;
+        .description {
+          .title {
+            background-color: $color_grey_loading;
+            height: 30px;
+            border-radius: 15px;
+          }
+          .meta {
+            > span {
+              height: 20px;
+              overflow: hidden;
+              width: 90px;
+              background-color: $color_grey_loading;
+              border-radius: 15px;
+              color: transparent;
+            }
+          }
         }
-        
+      }
     }
-
-    &.loading {
-        .event_tiles {
-            .event_tile_item {
-                .visual {
-                    background-color: $color_grey_loading;
-                    img {
-                        opacity: 0;
-                    }
-                }
-                .description {
-                    .title {
-                        background-color: $color_grey_loading;
-                        height: 30px;
-                        border-radius: 15px;
-                    }
-                    .meta {
-                        > span {
-                            height: 20px;
-                            overflow: hidden;
-                            width: 90px;
-                            background-color: $color_grey_loading;
-                            border-radius: 15px;
-                            color: transparent;
-                        }
-                    }
-                }
-            }
-        }
-    }
+  }
 }
