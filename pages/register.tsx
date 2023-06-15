@@ -1,10 +1,12 @@
 import PreLoginLayout from "@/components/PreLoginLayout";
 import CustomPassword from "@/components/PreLoginLayout/CustomPassword/CustomPasswordField";
 import style from "@/styles/prelogin/prelogin.module.scss";
+import errTextStyle from '@/styles/prelogin/errorText.module.scss';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
+import FormErrorText from "@/components/PreLoginLayout/FormErrorText/FormErrorText";
 
 export default function Register() {
   const [data, setData] = useState({
@@ -38,6 +40,7 @@ export default function Register() {
         const apiRes = await axios.post(`/api/auth/signup`, data);
 
         if (apiRes?.data?.success) {
+          setSubmitError('');
         }
       } catch (error: unknown) {
         if (error instanceof AxiosError) {
@@ -58,11 +61,11 @@ export default function Register() {
     <>
       <PreLoginLayout
         title={`Lets Create An\nAccount`}
-        styleClass={`register_layout ${loading ? "loading" : "not-loading"}`}
+        styleClass={`register_layout`}
         onBack={`./`}
       >
         {
-          <div className={`${style.form_wrap + " " + style.register_form}`}>
+          <div className={`${style.form_wrap + " " + style.register_form} ${loading ? style.loading : " "}`}>
             <h1 className={style.form_title}>Create an account!</h1>
             <p className={style.para}>
               Already have an account?
@@ -120,6 +123,11 @@ export default function Register() {
                 >
                   Sign Up
                 </button>
+              </div>
+              <div className={style.form_group}>
+                {
+                  submitError ? <FormErrorText text={submitError} styleClass={errTextStyle.error} /> : <FormErrorText text={`User Registered Successfully`} styleClass={errTextStyle.success} />
+                }
               </div>
             </form>
           </div>

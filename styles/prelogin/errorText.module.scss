@@ -1,0 +1,15 @@
+@import '../variables.scss';
+
+.error_text {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+
+    &.success {
+        color: $color_primary;
+    }
+
+    &.error {
+        color: $color_danger;
+    }
+}
