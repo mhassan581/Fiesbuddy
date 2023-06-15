@@ -6,11 +6,15 @@ $tile_radius: 30px;
     > .title {
         font-size: 28px;
         font-weight: 700;
+        @media (max-width: 767px) {
+            font-size: 22px;
+        }
     }
     .event_tiles {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+       
         margin: -10px;
         padding-top: 35px;
         .event_tile_item {
@@ -37,6 +41,9 @@ $tile_radius: 30px;
 
                 @media (max-width: 1600px) {
                     height: 190px;
+                }
+                @media (max-width: 767px) {
+                    height: 120px;
                 }
             }
             .description {
@@ -111,6 +118,33 @@ $tile_radius: 30px;
                         margin-top: 15px;
                     }
                 }
+                
+
+                @media (max-width: 500px) {
+                    
+                    .social_links {
+                        li {
+                            margin-right: 12px;
+                            font-size: 12px;
+                            
+                        }
+                    }
+                    .excerpt {
+                        font-size: 13px;
+                        margin-top: 10px;
+                    }
+                    .meta {
+                        font-size: 12px;
+                        // display: block;
+                        > span {
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .title {
+                        font-size: 14px;
+                    }
+                    padding: 8px;
+                }
             }
 
             &:hover {
@@ -123,9 +157,22 @@ $tile_radius: 30px;
 
             @media (max-width: 1300px) {
                 max-width: 432px;
-                flex: 0 1 45%;
+                flex: 0 1 46.8%;
+            }
+            @media (max-width: 767px) {
+                max-width: 432px;
+                flex: 0 1 44%;
+                border-radius: 10px;
+            }
+            @media (max-width: 500px) {
+                flex: 0 1 100%;
             }
         }
+        @media (max-width: 767px) {
+            padding-top: 20px;
+            justify-content: space-around;
+        }
+        
     }
 
     &.loading {
