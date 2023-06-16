@@ -1,0 +1,65 @@
+@import "../variables.scss";
+
+
+
+ // NOTIFICATION MODAL
+ .logout_modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+     display: none;   
+     &:before {
+         content: "";
+         position: fixed;
+         background: #000;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+    
+    .logout_body {
+        position: relative;
+        border-radius: 50px;
+        max-width: 400px;
+        margin: 1.75rem auto;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        min-height: calc(100% - 3.5rem);
+        .logout_content {
+            position: relative;
+            width: 100%;
+            pointer-events: auto;
+            background-clip: padding-box;
+            border-radius: 40px;
+            outline: 0;
+            background: $white;
+            box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            text-align: center;
+            h4 {
+                color: $color_primary;
+                font-weight: 700;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            p {
+                color: $black;
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            button {
+                margin: 0 5px;
+                width: 140px
+            }
+        }
+    }
+   
+}

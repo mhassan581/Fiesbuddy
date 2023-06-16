@@ -3,13 +3,7 @@
 $tile_radius: 30px;
 
 .event_tile_grid_wrapper {
-  > .title {
-    font-size: 28px;
-    font-weight: 700;
-    @media (max-width: 767px) {
-      font-size: 22px;
-    }
-  }
+ 
   .event_tiles {
     display: flex;
     flex-direction: row;
