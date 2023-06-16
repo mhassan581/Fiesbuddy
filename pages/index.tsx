@@ -3,17 +3,19 @@ import CustomPassword from "@/components/PreLoginLayout/CustomPassword/CustomPas
 import SocialLogin from "@/components/PreLoginLayout/SocialLogin/SocialLogin";
 import { loginUser } from "@/helpers";
 import style from "@/styles/prelogin/prelogin.module.scss";
+import errorStyle from "@/styles/prelogin/errorText.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { AxiosError } from "axios";
+import FormErrorText from "@/components/PreLoginLayout/FormErrorText/FormErrorText";
 
 export default function Login() {
   const [isShowPass, setIsShowPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [submitError, setSubmitError] = useState("false");
+  const [submitError, setSubmitError] = useState("");
   const router = useRouter();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +37,7 @@ export default function Login() {
       if (loginRes && !loginRes.ok) {
         setSubmitError(loginRes.error || "");
       } else {
+        setSubmitError("");
         router.push("./dashboard");
       }
     } catch (error) {
@@ -62,7 +65,7 @@ export default function Login() {
               <b>Create New!</b>
             </Link>
           </p>
-          <form action="" className={style.form}>
+          <form action="" onSubmit={handleLogin} className={style.form}>
             {/* EMAIL */}
             <div className={style.form_group}>
               <label htmlFor="txtEmail">Email*</label>
@@ -73,6 +76,8 @@ export default function Login() {
                   className={`${style.input} form-control`}
                   name="txtEmail"
                   placeholder="email@gmail.com"
+                  required
+                  onChange={handleEmailChange}
                 />
                 <span className={`${style.icon} icon-email`}></span>
               </span>
@@ -80,9 +85,9 @@ export default function Login() {
             {/* PASSWORD */}
             <CustomPassword
               placeholder="Password"
-              name="password"
-              id="password"
-              onChange={""}
+              name="txtPassword"
+              id="txtPassword"
+              onChange={handlePasswordChange}
             />
             {/* FORGET PASSWORD */}
             <div className={`${style.form_group} text-right`}>
@@ -93,6 +98,10 @@ export default function Login() {
               <button id="login" className={`${style.btn_submit}`}>
                 Login
               </button>
+            </div>
+            {/* SUBMIT ERROR */}
+            <div className={style.form_group}>
+              <FormErrorText text={submitError} styleClass={errorStyle.error} />
             </div>
           </form>
           {/* SOCIAL LOGIN */}

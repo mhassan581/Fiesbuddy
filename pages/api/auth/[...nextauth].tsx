@@ -1,8 +1,9 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GmailProvider from "next-auth/providers/google";
+import Credentials from "next-auth/providers/credentials";
+import EmailProvider from "next-auth/providers/email";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../utils/MongoDBClient";
-import Credentials from "next-auth/providers/credentials";
 import { IUser } from "@/types";
 import { connectToMongoDB } from "@/utils/mongodb";
 import User from "@/models/User";
@@ -13,6 +14,15 @@ export default NextAuth({
     GmailProvider({
       clientId: `${process.env.GOGOLE_AUTH_ID}`,
       clientSecret: `${process.env.GOOGLE_AUTH_SECRET}`,
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture,
+          userRole: "user",
+        };
+      },
     }),
     Credentials({
       id: "credentials",
@@ -46,6 +56,9 @@ export default NextAuth({
         return user;
       },
     }),
+    EmailProvider({
+      
+    }),
   ],
   pages: {
     signIn: "/index",
@@ -55,7 +68,7 @@ export default NextAuth({
     strategy: "jwt",
   },
   jwt: {
-    secret: "asdadeegkdjao",
+    secret: process.env.NEXTAUTH_SECRET as string,
   },
   callbacks: {
     jwt: async ({ token, user }) => {

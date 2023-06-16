@@ -1,7 +1,14 @@
 import PreLoginLayout from "@/components/PreLoginLayout";
 import style from "@/styles/prelogin/prelogin.module.scss";
+import { signIn } from "next-auth/react";
+import React from "react";
 
 export default function ForgotPassword() {
+  const handleFromSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    signIn("email");
+  };
+
   return (
     <>
       <PreLoginLayout
@@ -16,7 +23,7 @@ export default function ForgotPassword() {
               Don’t worry it happens, Please enter the email address associated
               with your account.
             </p>
-            <form action="" className={style.form}>
+            <form action="" onSubmit={handleFromSubmit} className={style.form}>
               {/* EMAIL */}
               <div className={style.form_group}>
                 <label htmlFor="txtEmail">Email*</label>

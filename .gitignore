@@ -36,3 +36,7 @@ next-env.d.ts
 
 # dummy data
 db.json
+#.env
+
+.env
+.env.local

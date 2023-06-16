@@ -19,7 +19,7 @@ export default function CustomPassword(props: {
             className={`form-control ${style.input}`}
             name={props.name}
             placeholder={`${props.placeholder}`}
-            
+            required
             onChange={props.onChange}
           />
           <span

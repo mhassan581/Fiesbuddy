@@ -1,9 +1,37 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import UserSidebarList from "./UserSidebarList";
+import { signOut, useSession } from "next-auth/react";
+import AdminSideBarList from "./AdminSidebarList";
+
 export default function Sidebar(props: { isShow: boolean }) {
   const [isActive, setActive] = useState(false);
   const [isActive2, setActive2] = useState(false);
+
+  const { data: session, status: loading } = useSession();
+  let userRole = "";
+  if (session) {
+    userRole = session?.user?.userRole;
+    console.log(userRole);
+  }
+
+  const RenderAdminList = () => {
+    if (session) {
+      if (userRole === "feisadmin") {
+        return (
+          <>
+            <AdminSideBarList />
+          </>
+        );
+      } else if (userRole === "user") {
+        return (
+          <>
+            <UserSidebarList />
+          </>
+        );
+      }
+    }
+  };
 
   useEffect(() => {
     const section = document.getElementById("dashboard_layout");
@@ -60,11 +88,14 @@ export default function Sidebar(props: { isShow: boolean }) {
               <img src="/images/logo.png" className="logo" alt="" />
             </Link>
           </div>
-          <div className="nav_list">
-            <UserSidebarList />
-          </div>
+          <div className="nav_list">{<RenderAdminList />}</div>
           <div className="logout">
-            <button>
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                signOut();
+              }}
+            >
               <i className="icon icon-loginlogout"></i>
               Logout
             </button>
