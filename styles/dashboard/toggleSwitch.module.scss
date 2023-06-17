@@ -1,0 +1,53 @@
+@import "../variables.scss";
+
+
+.toggle {
+	cursor: pointer;
+	display: inline-block;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 50px;
+}
+.toggle_switch {
+  display: inline-block;
+  background: $white;
+	border-radius: 16px;
+	width: 58px;
+	height: 32px;
+	position: relative;
+	vertical-align: middle;
+	transition: background 0.25s;
+	&:before,
+	&:after {
+		content: "";
+	}
+	&:before {
+		display: block;
+    background: $color_grey_loading;
+		border-radius: 50%;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		transition: left 0.25s;
+	}
+	.toggle:hover &:before {
+		background: $color_grey_loading;
+	}
+	.toggle_checkbox:checked + & {
+    background: $white;
+		&:before {
+			left: 30px;
+      background: $color_primary;
+		}
+	}
+}
+.toggle_checkbox {
+	position: absolute;
+	visibility: hidden;
+}
+.toggle_label {
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}

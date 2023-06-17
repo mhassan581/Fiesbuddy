@@ -2,12 +2,12 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import NotificationList from "./NotificationList/NotificationList";
+import LogOutModal from "./LogOutModal/LogOutModal";
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
 
 
   const [isTablet, setIsTablet] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
       const handleResize = () => {
@@ -22,18 +22,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
       };
     }, []);
 
-    useEffect(() => {
-      const handleResize2 = () => {
-        setIsMobile(window.innerWidth < 768);
-      };
-  
-      window.addEventListener('resize', handleResize2);
-      handleResize2();
-  
-      return () => {
-        window.removeEventListener('resize', handleResize2);
-      };
-    }, []);
+   
 
   return (
     <>
@@ -45,6 +34,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
           <section className="dash_content">{children}</section>
         </main>
         <NotificationList/>
+        <LogOutModal/>
       </section>
     </>
   );
