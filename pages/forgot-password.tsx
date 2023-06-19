@@ -6,7 +6,7 @@ import React from "react";
 export default function ForgotPassword() {
   const handleFromSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    signIn("email");
+    signIn("email", { email: "mumtaz.ahmedjp@gmail.com" });
   };
 
   return (
