@@ -741,6 +741,7 @@ section#dashboard_layout {
     display: block;
   }
 
+<<<<<<< HEAD
   // ACCORDIAN
   /**
 * ----------------------------------------------
@@ -805,6 +806,23 @@ section#dashboard_layout {
     }
   }
 
+=======
+  // Full Calender
+  .fc {
+    &.fc-direction-ltr {
+        display: flex;
+        flex-direction: unset;
+    }
+    .fc-toolbar {
+      background: #E0ECF3;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+
+
+>>>>>>> 2563f89c41f6041f01f64c86eb36ab4a1158e8c7
   /*
    DASHBOARD MAIN CONTENT
   */
