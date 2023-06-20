@@ -53,7 +53,7 @@ export default function Login() {
     <>
       <PreLoginLayout
         title={"Welcome Back"}
-        styleClass={`login_layout`}
+        styleClass={`login_layout ${loading ? "loading" : ""}`}
         onBack={``}
       >
         <div className={`${style.form_wrap + " " + style.login_form}`}>
@@ -101,7 +101,12 @@ export default function Login() {
             </div>
             {/* SUBMIT ERROR */}
             <div className={style.form_group}>
-              <FormErrorText text={submitError} styleClass={errorStyle.error} />
+              {!loading && (
+                <FormErrorText
+                  text={submitError}
+                  styleClass={errorStyle.error}
+                />
+              )}
             </div>
           </form>
           {/* SOCIAL LOGIN */}

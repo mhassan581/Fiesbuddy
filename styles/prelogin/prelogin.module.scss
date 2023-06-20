@@ -107,11 +107,6 @@
         .btn_submit {
             margin: 1em 0;
         }
-
-        &.loading{
-            filter: blur(5px);
-            pointer-events: none;
-        }
     }
 
     @media (max-width: 1600px) {

@@ -1,5 +1,6 @@
 import { PropsWithChildren, ReactNode } from "react";
 import { useRouter } from "next/router";
+import AbsoluteLoader from "../AbsoluteLoader/AbsoluteLoader";
 
 export default function PreLoginLayout(props: {
   children: ReactNode;
@@ -23,13 +24,14 @@ export default function PreLoginLayout(props: {
             </div>
             <p className="tagline">© 2023 Powered by Feis Buddy</p>
           </div>
-          <div className="form_wrapper">
+          <div className={`form_wrapper`}>
             {props.children}
             <button
               className="btn_back"
               aria-label="Go Back"
               onClick={() => router.push(props.onBack)}
             ></button>
+            <AbsoluteLoader />
           </div>
         </div>
       </section>

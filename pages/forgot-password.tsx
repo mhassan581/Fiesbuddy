@@ -1,12 +1,18 @@
 import PreLoginLayout from "@/components/PreLoginLayout";
 import style from "@/styles/prelogin/prelogin.module.scss";
 import { signIn } from "next-auth/react";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
   const handleFromSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    signIn("email", { email: "mumtaz.ahmedjp@gmail.com" });
+    signIn("email", { email: email });
   };
 
   return (
@@ -34,6 +40,7 @@ export default function ForgotPassword() {
                     className={`${style.input} form-control`}
                     name="txtEmail"
                     placeholder="email@gmail.com"
+                    onChange={handleEmail}
                   />
                   <span className={`${style.icon} icon-email`}></span>
                 </span>

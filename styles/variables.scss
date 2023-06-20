@@ -116,3 +116,9 @@ $main_dash_y_padding: 40px;
 43% { transform: rotate(0); }
 100% { transform: rotate(0); }
 }
+
+@keyframes spinner-b87k6z {
+    to {
+       transform: rotate(360deg);
+    }
+ }

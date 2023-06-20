@@ -71,15 +71,11 @@ export default function Register() {
     <>
       <PreLoginLayout
         title={`Lets Create An\nAccount`}
-        styleClass={`register_layout`}
+        styleClass={`register_layout ${loading ? "loading" : ""}`}
         onBack={`./`}
       >
         {
-          <div
-            className={`${style.form_wrap + " " + style.register_form} ${
-              loading ? style.loading : " "
-            }`}
-          >
+          <div className={`${style.form_wrap + " " + style.register_form} `}>
             <h1 className={style.form_title}>Create an account!</h1>
             <p className={style.para}>
               Already have an account?
