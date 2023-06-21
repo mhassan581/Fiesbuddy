@@ -5,13 +5,13 @@ const ClubSchema = new Schema({
 
   title: {
     type: String,
-required:true
+    required: true
   },
 
- 
- 
+
+
 });
 
-const Club = models.Club || model("club", ClubSchema);
+const Club = models.Club || model("Club", ClubSchema);
 
 export default Club;

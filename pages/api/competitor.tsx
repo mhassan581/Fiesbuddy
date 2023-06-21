@@ -1,9 +1,6 @@
 import Competitor from "@/models/Competitor";
-import { IUser } from "@/types";
-import { connectToMongoDB } from "@/utils/mongodb";
-import { hash } from "bcryptjs";
-import mongoose from "mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
+import { connectToMongoDB } from "@/utils/mongodb";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   connectToMongoDB().catch((err) => res.json(err));
@@ -15,56 +12,37 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { name, clubID } = req.body;
 
-   
+    try {
+      const createdCompetitor = await Competitor.create({
+        name: name,
+        clubID: clubID
+      });
 
-    const CreateCompetitor =  Competitor.create({
+      return res.status(201).json({
+        success: true,
+        result: createdCompetitor
+      });
+    } catch (err) {
+      //return res.status(400).json({ error: err.message });
+    }
+  } else if (req.method === "GET") {
+    try {
+      const competitors = await Competitor.aggregate([
+        {$lookup:{
+          from: "clubs",
+            localField: "clubID",
+            foreignField: "_id",
+            as: "clubID",
 
-        name:name,
-        clubID:clubID
-       
-     
-      })
-        .then((result) => {
-          return res.status(201).json({
-            success: true,
-            result,
-          });
-        })
-        .catch((err) => {
-          return res.status(400).json({ error: err });
-        });
-    
-  } 
-  
- else if (req.method === "GET") {
-   
-
-   
-try{
-    const CompetitorEvent = await Competitor.find().populate("clubID")
-    return CompetitorEvent
-
-
-}
-catch(error){
-    console.log(error)
-
-}
-        // .then((result) => {
-        //   return res.status(201).json({
-        //     success: true,
-        //     result,
-        //   });
-        // })
-        // .catch((err) => {
-        //   return res.status(400).json({ error: err });
-        // });
-    
-  }
-  
-  
-  else {
-    res.status(405).json({ error: "Method Not Allowed" });
+        }}
+      ])
+      return res.status(200).json(competitors);
+    } catch (error) {
+      console.log(error);
+     // return res.status(400).json({ error: error.message });
+    }
+  } else {
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 };
 
