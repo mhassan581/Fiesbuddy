@@ -52,19 +52,20 @@ export default function Login() {
   return (
     <>
       <PreLoginLayout
-        title={"Welcome Back"}
+        title={"Welcome To \n Feis Buddy"}
         styleClass={`login_layout ${loading ? "loading" : ""}`}
         onBack={``}
       >
         <div className={`${style.form_wrap + " " + style.login_form}`}>
-          <h1 className={style.form_title}>Hey There, Log In Now!</h1>
-          <p className={style.para}>
+          <h1 className={style.form_title}>Get Started</h1>
+          <p className={style.para}>Enter your details below and access event details</p>
+          {/* <p className={style.para}>
             Don’t have an account?
             <Link href="/register">
               &nbsp;
               <b>Create New!</b>
             </Link>
-          </p>
+          </p> */}
           <form action="" onSubmit={handleLogin} className={style.form}>
             {/* EMAIL */}
             <div className={style.form_group}>
@@ -90,15 +91,16 @@ export default function Login() {
               onChange={handlePasswordChange}
             />
             {/* FORGET PASSWORD */}
-            <div className={`${style.form_group} text-right`}>
+            {/* <div className={`${style.form_group} text-right`}>
               <Link href={`./forgot-password`}>Forget Password?</Link>
-            </div>
+            </div> */}
             {/* SUBMIT / LOGIN */}
             <div className={`${style.form_group}`}>
               <button id="login" className={`${style.btn_submit}`}>
-                Login
+                Start
               </button>
             </div>
+            <div className={style.form_group}></div>
             {/* SUBMIT ERROR */}
             <div className={style.form_group}>
               {!loading && (
@@ -110,9 +112,9 @@ export default function Login() {
             </div>
           </form>
           {/* SOCIAL LOGIN */}
-          <div className={style.form_group}>
+          {/* <div className={style.form_group}>
             <SocialLogin />
-          </div>
+          </div> */}
         </div>
       </PreLoginLayout>
     </>

@@ -24,11 +24,11 @@ export default function Header(props: {
             <img src="/images/avatar_placeholder.png" alt="" />
           </div>
           <div className="content">
-            <h2 className="title">Welcome back, {props.userName}</h2>
+            <h2 className="title">Welcome back {props.userName}</h2>
             <p className="tag">Everything is organize by your one tap.</p>
           </div>
         </div>
-        <div className="search_area">
+        {/* <div className="search_area">
           <div className="search_field">
             <input
               type="text"
@@ -46,7 +46,7 @@ export default function Header(props: {
         >
           <i className="icon icon-bell"></i>
           <span className="notification_active"></span>
-        </button>
+        </button> */}
       </header>
     </>
   );

@@ -31,6 +31,28 @@ export default function Sidebar(props: { isShow: boolean }) {
     }
   };
 
+  const RenderLogoutButton = () => {
+    if (session) {
+      if (user.userRole === "feisadmin") {
+        return (
+          <>
+            <div className="logout">
+              <button
+                onClick={(event) => {
+                  event.preventDefault();
+                  signOut();
+                }}
+              >
+                <i className="icon icon-loginlogout"></i>
+                Logout
+              </button>
+            </div>
+          </>
+        );
+      }
+    }
+  };
+
   useEffect(() => {
     const section = document.getElementById("dashboard_layout");
     if (section) {
@@ -87,17 +109,7 @@ export default function Sidebar(props: { isShow: boolean }) {
             </Link>
           </div>
           <div className="nav_list">{<RenderAdminList />}</div>
-          <div className="logout">
-            <button
-              onClick={(event) => {
-                event.preventDefault();
-                signOut();
-              }}
-            >
-              <i className="icon icon-loginlogout"></i>
-              Logout
-            </button>
-          </div>
+          <RenderLogoutButton />
         </nav>
       </aside>
     </>

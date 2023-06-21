@@ -77,9 +77,9 @@ textarea {
 }
 .select-dropdown {
   .inner-select__control {
-      min-height: 52px;
-      border-radius: 50px;
-      padding-left: 45px;
+    min-height: 52px;
+    border-radius: 50px;
+    padding-left: 45px;
   }
 }
 select {
@@ -153,6 +153,7 @@ select {
 button {
   font-family: $theme_font;
 }
+
 .form_group {
   display: block;
   margin: 0.5em 0;
@@ -162,7 +163,6 @@ button {
     color: $color_grey;
   }
   .icon_group {
-<<<<<<< HEAD
     display: block;
     width: 100%;
     position: relative;
@@ -175,36 +175,16 @@ button {
       transform: translateY(-50%);
       transition: all 0.3s;
     }
-    input {
+    .input {
       padding-left: 50px;
       &:focus {
         ~ .icon {
           color: $black;
         }
-=======
-      display: block;
-      width: 100%;
-      position: relative;
-      .icon {
-          font-size: 18px;
-          color: $color_grey;
-          position: absolute;
-          left: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: all 0.3s;
-      }
-      .input {
-          padding-left: 50px;
-          &:focus {
-              ~ .icon {
-                  color: $black;
-              }
-          }
->>>>>>> a9a2b9fbb105140d03adbe1187e938b5b932e6f8
       }
     }
   }
+
   .input {
     &.form-control {
       border-color: rgb(148, 148, 148, 50%);
@@ -214,7 +194,6 @@ button {
       &:focus {
         box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
       }
-      
     }
   }
   textarea {
@@ -457,6 +436,15 @@ section#prelogin_layout {
         &::after {
           bottom: 0;
           left: 0;
+        }
+      }
+      .visual_wrapper{
+        >.inner{
+          .static-visual{
+            .title{
+              margin-bottom: -11%;
+            }
+          }
         }
       }
     }
