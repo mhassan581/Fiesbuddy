@@ -53,6 +53,8 @@ b {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="date"],
+select,
 textarea {
   &.form-control {
     border: 1px solid transparent;
@@ -73,7 +75,22 @@ textarea {
     }
   }
 }
-
+.select-dropdown {
+  .inner-select__control {
+      min-height: 52px;
+      border-radius: 50px;
+      padding-left: 45px;
+  }
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(/images/down_sans_arrow_icon.svg);
+  background-repeat: no-repeat;
+  background-position-x: 97%;
+  background-position-y: 15px;
+  background-size: 3% 40%;
+}
 .btn_back {
   height: 25px;
   width: 25px;
@@ -145,6 +162,7 @@ button {
     color: $color_grey;
   }
   .icon_group {
+<<<<<<< HEAD
     display: block;
     width: 100%;
     position: relative;
@@ -163,6 +181,27 @@ button {
         ~ .icon {
           color: $black;
         }
+=======
+      display: block;
+      width: 100%;
+      position: relative;
+      .icon {
+          font-size: 18px;
+          color: $color_grey;
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: all 0.3s;
+      }
+      .input {
+          padding-left: 50px;
+          &:focus {
+              ~ .icon {
+                  color: $black;
+              }
+          }
+>>>>>>> a9a2b9fbb105140d03adbe1187e938b5b932e6f8
       }
     }
   }
@@ -175,6 +214,7 @@ button {
       &:focus {
         box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
       }
+      
     }
   }
   textarea {
@@ -741,23 +781,6 @@ section#dashboard_layout {
     display: block;
   }
 
-<<<<<<< HEAD
-  // Full Calender
-  .fc {
-    &.fc-direction-ltr {
-        display: flex;
-        flex-direction: unset;
-    }
-    .fc-toolbar {
-      background: #E0ECF3;
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-
-
-=======
   // ACCORDIAN
   /**
 * ----------------------------------------------
@@ -822,7 +845,6 @@ section#dashboard_layout {
     }
   }
 
->>>>>>> ed8aa330fa6bf7a8ebb9b0a8c4622226300928ec
   /*
    DASHBOARD MAIN CONTENT
   */
