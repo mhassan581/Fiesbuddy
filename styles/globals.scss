@@ -163,28 +163,28 @@ button {
     color: $color_grey;
   }
   .icon_group {
-    display: block;
-    width: 100%;
-    position: relative;
-    .icon {
-      font-size: 18px;
-      color: $color_grey;
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: all 0.3s;
-    }
-    .input {
-      padding-left: 50px;
-      &:focus {
-        ~ .icon {
-          color: $black;
-        }
+      display: block;
+      width: 100%;
+      position: relative;
+      .icon {
+          font-size: 18px;
+          color: $color_grey;
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: all 0.3s;
+      }
+      .input {
+          padding-left: 50px;
+          &:focus {
+              ~ .icon {
+                  color: $black;
+              }
+          }
       }
     }
-  }
-
+  
   .input {
     &.form-control {
       border-color: rgb(148, 148, 148, 50%);
