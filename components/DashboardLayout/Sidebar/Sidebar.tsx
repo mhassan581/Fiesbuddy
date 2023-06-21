@@ -3,27 +3,25 @@ import { useEffect, useState } from "react";
 import UserSidebarList from "./UserSidebarList";
 import { signOut, useSession } from "next-auth/react";
 import AdminSideBarList from "./AdminSidebarList";
+import { IUser } from "@/types";
 
 export default function Sidebar(props: { isShow: boolean }) {
   const [isActive, setActive] = useState(false);
   const [isActive2, setActive2] = useState(false);
 
   const { data: session, status: loading } = useSession();
-  let userRole = "";
-  if (session) {
-    userRole = session?.user?.userRole;
-    console.log(userRole);
-  }
+
+  const user = session?.user as IUser;
 
   const RenderAdminList = () => {
     if (session) {
-      if (userRole === "feisadmin") {
+      if (user.userRole === "feisadmin") {
         return (
           <>
             <AdminSideBarList />
           </>
         );
-      } else if (userRole === "user") {
+      } else if (user.userRole === "user") {
         return (
           <>
             <UserSidebarList />

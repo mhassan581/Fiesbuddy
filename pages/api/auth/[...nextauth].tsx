@@ -33,7 +33,7 @@ export default NextAuth({
       },
       async authorize(credentials) {
         await connectToMongoDB().catch((err) => {
-          throw new Error(err);
+          throw new Error('Database connection error: Please try again');
         });
 
         const user = await User.findOne({
