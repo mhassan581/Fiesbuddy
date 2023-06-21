@@ -5,7 +5,7 @@ import { Key } from "react";
 
 const fetcher = async () => {
   const response = await fetch(
-    "https://api.jsonbin.io/v3/b/6480c2638e4aa6225eaab396",
+    "localhost:3000/api/events",
     {
       //   mode: "no-cors",
       headers: {
@@ -69,7 +69,7 @@ export default function EventTileGrid(props: { title: String }) {
                 title: String;
                 date: Date;
                 time: String;
-                excerpt: String;
+                description: String;
               }) => {
                 return (
                   <EventTileItem
@@ -77,7 +77,7 @@ export default function EventTileGrid(props: { title: String }) {
                     title={ev.title}
                     eventDate={ev.date}
                     eventTime={ev.time}
-                    excerpt={ev.excerpt}
+                    excerpt={ev.description}
                     image={"/sample-images/event_3.png"}
                     facebookURL={`#`}
                     twitterURL={`#`}

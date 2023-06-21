@@ -4,7 +4,7 @@ export default function UserSidebarList() {
       <ul>
         <li>
           <a href="#" className="active">
-            <i className="icon-dashboard"></i> Dashboard
+            <i className="icon-dashboard"></i> Events
           </a>
         </li>
         <li>

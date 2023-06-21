@@ -39,8 +39,8 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
           <Header userName={user?.name || ""} hasNotifications={true} />
           <section className="dash_content">{children}</section>
         </main>
-        <NotificationList />
-        <LogOutModal />
+        {/* <NotificationList /> */}
+        {/* <LogOutModal /> */}
       </section>
     </>
   );

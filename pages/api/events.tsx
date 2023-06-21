@@ -13,51 +13,35 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ error: "Data is missing" });
     }
 
-    const { title, date,description,time } = req.body;
+    const { title, date, description, time } = req.body;
 
-   
-
-    const CreateEvent =  Event.create({
-
-        title:title,
-        description:description,
-        time:time,
-        date:date,
-       
-     
+    const CreateEvent = Event.create({
+      title: title,
+      description: description,
+      time: time,
+      date: date,
+    })
+      .then((result) => {
+        return res.status(201).json({
+          success: true,
+          result,
+        });
       })
-        .then((result) => {
-          return res.status(201).json({
-            success: true,
-            result,
-          });
-        })
-        .catch((err) => {
-          return res.status(400).json({ error: err });
+      .catch((err) => {
+        return res.status(400).json({ error: err });
+      });
+  } else if (req.method === "GET") {
+    const GetEvent = Event.find({})
+      .then((result) => {
+        return res.status(201).json({
+          success: true,
+          result,
         });
-    
-  } 
-  
- else if (req.method === "GET") {
-   
-
-   
-
-    const GetEvent =  Event.find({})
-        .then((result) => {
-          return res.status(201).json({
-            success: true,
-            result,
-          });
-        })
-        .catch((err) => {
-          return res.status(400).json({ error: err });
-        });
-    
-  }
-  
-  
-  else {
+      })
+      .catch((err) => {
+        return res.status(400).json({ error: err });
+      });
+  } else {
     res.status(405).json({ error: "Method Not Allowed" });
   }
 };

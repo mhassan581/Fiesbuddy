@@ -717,6 +717,8 @@ section#dashboard_layout {
       border: none;
       background: #f8f8f8;
       z-index: 99;
+      transition: all 0.3s;
+      cursor: pointer;
       i {
         height: 18px;
         width: 18px;
@@ -724,13 +726,15 @@ section#dashboard_layout {
         outline: 2px solid $black;
         border-radius: 4px;
         background-color: transparent;
-        cursor: pointer;
         position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         font-weight: 700;
         font-size: 16px;
+      }
+      &:hover{
+        box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.16);
       }
     }
   }

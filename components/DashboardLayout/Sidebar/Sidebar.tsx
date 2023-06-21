@@ -21,13 +21,13 @@ export default function Sidebar(props: { isShow: boolean }) {
             <AdminSideBarList />
           </>
         );
-      } else if (user.userRole === "user") {
-        return (
-          <>
-            <UserSidebarList />
-          </>
-        );
       }
+    } else {
+      return (
+        <>
+          <UserSidebarList />
+        </>
+      );
     }
   };
 
