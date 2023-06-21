@@ -162,26 +162,6 @@ button {
     color: $color_grey;
   }
   .icon_group {
-<<<<<<< HEAD
-    display: block;
-    width: 100%;
-    position: relative;
-    .icon {
-      font-size: 18px;
-      color: $color_grey;
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: all 0.3s;
-    }
-    input {
-      padding-left: 50px;
-      &:focus {
-        ~ .icon {
-          color: $black;
-        }
-=======
       display: block;
       width: 100%;
       position: relative;
@@ -201,10 +181,9 @@ button {
                   color: $black;
               }
           }
->>>>>>> a9a2b9fbb105140d03adbe1187e938b5b932e6f8
       }
     }
-  }
+  
   .input {
     &.form-control {
       border-color: rgb(148, 148, 148, 50%);
