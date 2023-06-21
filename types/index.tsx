@@ -5,6 +5,7 @@ export interface IUser {
   emailVerified: boolean;
   userRole: string;
 }
+
 export interface LoginUserParams {
   email: string;
   password: string;
