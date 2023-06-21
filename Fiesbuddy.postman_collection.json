@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "a59ffb67-8bcf-4178-93f4-7c9430326b71",
+		"name": "Fiesbuddy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27475302"
+	},
+	"item": [
+		{
+			"name": "Add Club",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"New Club 4\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/club",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"club"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"New Club 4\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/club",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"club"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "etag",
+							"value": "\"11ysd048r3o2h\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 21 Jun 2023 16:47:22 GMT"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"result\": {\n        \"title\": \"New Club 4\",\n        \"_id\": \"6493299a63dab25b6a7dae55\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Compititor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"wasay1\",\r\n\"clubID\":\"6491b5b880c231a0637a52ce\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/competitor",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"competitor"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Compititor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"wasay1\",\r\n\"clubID\":\"6491b5b880c231a0637a52ce\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/competitor",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"competitor"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "etag",
+							"value": "\"hp7zhc4x9t3r\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 21 Jun 2023 16:47:17 GMT"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6491b5c380c231a0637a52d0\",\n        \"name\": \"wasay1\",\n        \"__v\": 0,\n        \"clubID\": [\n            {\n                \"_id\": \"6491b5b880c231a0637a52ce\",\n                \"title\": \"New Club 4\",\n                \"__v\": 0\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Result",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"compID\": \"6491b5c380c231a0637a52d0\",\r\n        \"eventID\": \"6490a2ca15e9dd8568258a4e\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/result",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"result"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Result",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"compID\": \"6491b5c380c231a0637a52d0\",\r\n        \"eventID\": \"6490a2ca15e9dd8568258a4e\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/result",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"result"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "etag",
+							"value": "\"x9dzbd482e3x\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 21 Jun 2023 16:47:28 GMT"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"result\": {\n        \"compID\": \"6491b5c380c231a0637a52d0\",\n        \"eventID\": \"6490a2ca15e9dd8568258a4e\",\n        \"_id\": \"6493299f63dab25b6a7dae57\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Upload Event Files",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Request-Method",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"contentType": "",
+							"type": "file",
+							"src": "/C:/Users/abdul.wasay/Desktop/basketBall.jpg"
+						},
+						{
+							"key": "eventID",
+							"value": "6490a4280b65286ac145f273",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/fileupload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fileupload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Upload Event Files",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Access-Control-Request-Headers",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Access-Control-Request-Method",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"contentType": "",
+									"type": "file",
+									"src": "/C:/Users/abdul.wasay/Desktop/documentCover.png"
+								},
+								{
+									"key": "eventID",
+									"value": "6490a4280b65286ac145f273",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/fileupload",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "etag",
+							"value": "\"a2ueppo2r85p\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 21 Jun 2023 16:47:33 GMT"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"file\": \"1687366053122_documentCover.png\",\n        \"event\": \"6490a4280b65286ac145f273\",\n        \"_id\": \"649329a563dab25b6a7dae59\",\n        \"createdAt\": \"2023-06-21T16:47:33.128Z\",\n        \"updatedAt\": \"2023-06-21T16:47:33.128Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get events",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6490a4280b65286ac145f273\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/geteventfiles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"geteventfiles"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get events",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"6490a4280b65286ac145f273\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/geteventfiles",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"geteventfiles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "etag",
+							"value": "\"3mtkmrzn96qp\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 21 Jun 2023 16:47:39 GMT"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6492eea927659bce9c6b4c56\",\n        \"file\": \"1687350953404_basketBall.jpg\",\n        \"createdAt\": \"2023-06-21T12:35:53.408Z\",\n        \"updatedAt\": \"2023-06-21T12:35:53.408Z\",\n        \"__v\": 0,\n        \"event\": [\n            {\n                \"_id\": \"6490a4280b65286ac145f273\",\n                \"title\": \"new event 2\",\n                \"description\": \"Long description\",\n                \"date\": \"2023-10-02T19:00:00.000Z\",\n                \"time\": \"05:00AM\",\n                \"__v\": 0\n            }\n        ]\n    },\n    {\n        \"_id\": \"649328cb63dab25b6a7dae4e\",\n        \"file\": \"1687365835498_documentCover.png\",\n        \"createdAt\": \"2023-06-21T16:43:55.530Z\",\n        \"updatedAt\": \"2023-06-21T16:43:55.530Z\",\n        \"__v\": 0,\n        \"event\": [\n            {\n                \"_id\": \"6490a4280b65286ac145f273\",\n                \"title\": \"new event 2\",\n                \"description\": \"Long description\",\n                \"date\": \"2023-10-02T19:00:00.000Z\",\n                \"time\": \"05:00AM\",\n                \"__v\": 0\n            }\n        ]\n    },\n    {\n        \"_id\": \"649329a563dab25b6a7dae59\",\n        \"file\": \"1687366053122_documentCover.png\",\n        \"createdAt\": \"2023-06-21T16:47:33.128Z\",\n        \"updatedAt\": \"2023-06-21T16:47:33.128Z\",\n        \"__v\": 0,\n        \"event\": [\n            {\n                \"_id\": \"6490a4280b65286ac145f273\",\n                \"title\": \"new event 2\",\n                \"description\": \"Long description\",\n                \"date\": \"2023-10-02T19:00:00.000Z\",\n                \"time\": \"05:00AM\",\n                \"__v\": 0\n            }\n        ]\n    }\n]"
+				}
+			]
+		}
+	]
+}

@@ -1,24 +1,17 @@
-import { timeStamp } from "console";
-import  mongoose, { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
 const CompetitorSchema = new Schema({
- 
   name: {
     type: String,
     required: [true, "Name is required"],
-  
   },
- 
-
   clubID: {
     type: mongoose.Schema.Types.ObjectId,
-    required: [true, "Name  is required"],
-    ref:"clubs",
-    // select: true,
+    required: [true, "Club ID is required"],
+    ref: "club", // Use "Club" instead of "clubs"
   },
-
 });
 
-const Competitor = models.Competitor || model("competitor", CompetitorSchema);
+const Competitor = models.Competitor || model("Competitor", CompetitorSchema);
 
 export default Competitor;

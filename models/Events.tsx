@@ -5,7 +5,7 @@ const EventSchema = new Schema({
  
   title: {
     type: String,
-    required: [true, "Eventname is required"],
+    required: [false, "Eventname is required"],
     minLength: [4, "Eventname should be atleast 4 characters long"],
     maxLength: [30, "Eventname should be less than 30 characters"],
   },
@@ -15,7 +15,7 @@ const EventSchema = new Schema({
   },
   date: {
     type: Date,
-    required: [true, "Password is required"],
+    required: [false, "Password is required"],
     select: true,
   },
   time:{
@@ -29,13 +29,12 @@ const EventSchema = new Schema({
     required: [false, "Event role is required"],
     select: true,
   },
-  rules:[{
-type:String,
-required:false,
-  }]
+
+
+
 
 });
 
-const Event = models.Event || model("events", EventSchema);
+const Event = models.Event || model("Event", EventSchema);
 
 export default Event;
