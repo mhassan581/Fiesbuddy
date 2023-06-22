@@ -12,7 +12,8 @@ $tile_radius: 30px;
     margin: -10px;
     padding-top: 35px;
     .event_tile_item {
-      width: 432px;
+      width: auto;
+      max-width: 380px;
       overflow: hidden;
       border-radius: $tile_radius;
       margin: 10px;
@@ -152,8 +153,10 @@ $tile_radius: 30px;
         flex: 0 1 45%;
       }
 
-      @media (max-width: 550px) {
+      @media (max-width: 1024px) {
         flex: 1 0 100%;
+        max-width: 100%;
+        margin: 0;
         .visual{
             height: 225px;
         }

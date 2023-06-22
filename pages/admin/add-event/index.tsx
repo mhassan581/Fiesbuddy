@@ -5,7 +5,7 @@ export default function addEvent() {
     return (
         <>
             <Head>
-                <title>Add Event | Fies Buddy</title>
+                <title>Add Event | Feis Buddy</title>
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="theme-color" content="#0091ff" />
             </Head>

@@ -1,16 +1,26 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 export default function UserSidebarList() {
+  const router = useRouter();
   return (
     <>
       <ul>
         <li>
-          <a href="#" className="active">
+          <Link
+            href="/dashboard/"
+            className={router.pathname == "/dashboard" ? "active" : ""}
+          >
             <i className="icon-dashboard"></i> Events
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link
+            href="/dashboard/settings/"
+            className={router.asPath == "/dashboard/settings" ? "active" : ""}
+          >
             <i className="icon-setting"></i> Settings
-          </a>
+          </Link>
         </li>
       </ul>
     </>

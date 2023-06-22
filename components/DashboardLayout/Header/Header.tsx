@@ -20,11 +20,11 @@ export default function Header(props: {
     <>
       <header id="dash_top_header">
         <div className="user_info">
-          <div className="avatar">
+          {/* <div className="avatar">
             <img src="/images/avatar_placeholder.png" alt="" />
-          </div>
+          </div> */}
           <div className="content">
-            <h2 className="title">Welcome back {props.userName}</h2>
+            <h2 className="title">Welcome To Feis Buddy {props.userName}</h2>
             <p className="tag">Everything is organize by your one tap.</p>
           </div>
         </div>

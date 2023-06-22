@@ -7,7 +7,7 @@ export default function DashboardHome() {
   return (
     <>
       <Head>
-        <title>Fies Buddy</title>
+        <title>Feis Buddy</title>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0091ff" />
       </Head>

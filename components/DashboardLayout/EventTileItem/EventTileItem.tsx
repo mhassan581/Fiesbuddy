@@ -2,9 +2,11 @@
 import style from "@/styles/dashboard/eventTileGrid.module.scss";
 import moment from "moment";
 import FormatTime24Hour from "../../../utils/FormatTime24Hour";
-// import Link from "next/link";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function EventTileItem(props: {
+  id: String;
   title: String;
   eventDate: Date;
   eventTime: String;
@@ -14,9 +16,18 @@ export default function EventTileItem(props: {
   twitterURL: string;
   googleURL: string;
 }) {
+  const router = useRouter();
+  const handleItemClick = (eventId: string) => {
+    router.push(`/dashboard/event/${eventId}`);
+  };
   return (
     <>
-      <div className={style.event_tile_item}>
+      <div
+        onClick={() => {
+          handleItemClick(props.id as string);
+        }}
+        className={style.event_tile_item}
+      >
         <div className={style.visual}>
           <img
             src={`/images/${props.image ? props.image : "placeholder.png"}`}

@@ -4,7 +4,7 @@ import Select from "react-select";
 import React, { useState } from "react";
 
 export default function addEvent() {
-    const [selectedOption, setSelectedOption] = useState(null || String);
+    const [selectedOption, setSelectedOption] = useState("");
 
     const options = [
         { value: 'chocolate', label: 'Chocolate' },
@@ -23,7 +23,7 @@ export default function addEvent() {
     return (
         <>
             <Head>
-                <title>Add Competitor | Fies Buddy</title>
+                <title>Add Competitor | Feis Buddy</title>
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="theme-color" content="#0091ff" />
             </Head>

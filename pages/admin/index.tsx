@@ -7,7 +7,7 @@ export default function AdminDashboard({ data }: any) {
   return (
     <>
       <Head>
-        <title>Fies Buddy | Admin</title>
+        <title>Feis Buddy | Admin</title>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0091ff" />
       </Head>

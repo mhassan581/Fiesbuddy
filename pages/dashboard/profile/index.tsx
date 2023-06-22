@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <>
       <Head>
-        <title>Profile | Fies Buddy</title>
+        <title>Profile | Feis Buddy</title>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0091ff" />
       </Head>

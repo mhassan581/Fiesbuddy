@@ -11,7 +11,7 @@ export const config = {
   },
 };
 
-const nfname = [] ? ['undefined'] : ["null"];
+const nfname = [] ? ["undefined"] : ["null"];
 
 const readFile = (
   req: NextApiRequest,
@@ -21,11 +21,11 @@ const readFile = (
   if (saveLocally) {
     options.uploadDir = path.join(process.cwd(), "/uploads");
     options.filename = (name, ext, path, form) => {
-      const newFname =  Date.now().toString() + "_" + path.originalFilename;
-      
+      const newFname = Date.now().toString() + "_" + path.originalFilename;
+
       nfname.length = 0;
       nfname?.push(newFname);
-   
+
       return newFname;
     };
   }
@@ -44,26 +44,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     connectToMongoDB().catch((err) => res.json(err));
     await fs.readdir(path.join(process.cwd() + "/uploads"));
     const { fields } = await readFile(req, true);
-    const { eventID } = fields; // Accessing eventID from fields
-  
+    const { title, eventID,fileCategory } = fields; // Accessing eventID and title from fields
+
     console.log("Event ID:", eventID[0]);
     console.log("File Name:", nfname[0]);
-    const uploadedFile =  await fileUpload.create({
-      event:eventID[0],
-      file: nfname[0]
+    console.log("File Category:", fileCategory[0]);
+    console.log("Title:", title[0]);
+
+    const uploadedFile = await fileUpload.create({
+      title: title[0],
+      file: nfname[0],
+      event: eventID[0],
+      fileCategory:fileCategory[0],
     });
     res.json({ data: uploadedFile });
-  
-
   } catch (error) {
     console.log(error);
     await fs.mkdir(path.join(process.cwd() + "/uploads"));
   }
-
-
-
-
- 
 };
 
 export default handler;

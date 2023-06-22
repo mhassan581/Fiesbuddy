@@ -4,17 +4,14 @@ import useSWR from "swr";
 import { Key } from "react";
 
 const fetcher = async () => {
-  const response = await fetch(
-    "localhost:3000/api/events",
-    {
-      //   mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Master-Key":
-          "$2b$10$QvUCIfVAdeNUyx9E1ZlcIuyIOC56xhYsXP//j/KfYTP9de.JoWB3C",
-      },
-    }
-  );
+  const response = await fetch("http://localhost:3000/api/events", {
+    //   mode: "no-cors",
+    // headers: {
+    //   "Content-Type": "application/json",
+    //   "X-Master-Key":
+    //     "$2b$10$QvUCIfVAdeNUyx9E1ZlcIuyIOC56xhYsXP//j/KfYTP9de.JoWB3C",
+    // },
+  });
   const data = await response.json();
   return data;
 };
@@ -40,6 +37,7 @@ export default function EventTileGrid(props: { title: String }) {
             {[...Array(6)].map((ev, index) => {
               return (
                 <EventTileItem
+                  id={``}
                   key={index}
                   title={``}
                   excerpt={``}
@@ -63,9 +61,9 @@ export default function EventTileGrid(props: { title: String }) {
         <div className={style.event_tile_grid_wrapper}>
           <h3 className={`${style.title} heading`}>{props.title}</h3>
           <div className={style.event_tiles}>
-            {data.record.events.map(
+            {data.result.map(
               (ev: {
-                id: Key | null | undefined;
+                _id: Key | null | undefined;
                 title: String;
                 date: Date;
                 time: String;
@@ -73,7 +71,8 @@ export default function EventTileGrid(props: { title: String }) {
               }) => {
                 return (
                   <EventTileItem
-                    key={ev.id}
+                    id={ev._id as string}
+                    key={ev._id}
                     title={ev.title}
                     eventDate={ev.date}
                     eventTime={ev.time}

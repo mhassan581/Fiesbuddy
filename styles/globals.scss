@@ -163,28 +163,28 @@ button {
     color: $color_grey;
   }
   .icon_group {
-      display: block;
-      width: 100%;
-      position: relative;
-      .icon {
-          font-size: 18px;
-          color: $color_grey;
-          position: absolute;
-          left: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: all 0.3s;
-      }
-      .input {
-          padding-left: 50px;
-          &:focus {
-              ~ .icon {
-                  color: $black;
-              }
-          }
+    display: block;
+    width: 100%;
+    position: relative;
+    .icon {
+      font-size: 18px;
+      color: $color_grey;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s;
+    }
+    .input {
+      padding-left: 50px;
+      &:focus {
+        ~ .icon {
+          color: $black;
+        }
       }
     }
-  
+  }
+
   .input {
     &.form-control {
       border-color: rgb(148, 148, 148, 50%);
@@ -438,10 +438,10 @@ section#prelogin_layout {
           left: 0;
         }
       }
-      .visual_wrapper{
-        >.inner{
-          .static-visual{
-            .title{
+      .visual_wrapper {
+        > .inner {
+          .static-visual {
+            .title {
               margin-bottom: -11%;
             }
           }
@@ -733,7 +733,7 @@ section#dashboard_layout {
         font-weight: 700;
         font-size: 16px;
       }
-      &:hover{
+      &:hover {
         box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.16);
       }
     }
@@ -957,8 +957,9 @@ section#dashboard_layout {
           li {
             margin-bottom: 16px;
             background: #ffffff;
-            box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
             border-radius: 50px;
+            border: 1px solid #95cff5;
+            transition: all 0.3s;
             &:first-child {
               .list_item {
                 display: flex;
@@ -968,16 +969,18 @@ section#dashboard_layout {
             }
             .list_item {
               background: #ffffff;
-              box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
               border-radius: 50px;
               display: block;
               padding: 20px 40px;
-              border: 1px solid #95cff5;
               h4 {
                 font-weight: 700;
                 font-size: 18px;
                 color: #000;
               }
+            }
+
+            &:hover {
+              box-shadow: 4px 8px 16px rgba(122, 122, 122, 0.12);
             }
           }
         }
@@ -1049,7 +1052,7 @@ section#dashboard_layout {
         }
       }
       .content {
-        margin-left: 15px;
+        // margin-left: 15px;
         .title {
           font-size: 24px;
           font-weight: 700;
@@ -1254,8 +1257,7 @@ section#dashboard_layout {
           width: 40px;
         }
         .content {
-          display: none;
-          margin-left: 8px;
+          // margin-left: 8px;
           .title {
             font-size: 16px;
             margin-bottom: 0;
@@ -1293,6 +1295,11 @@ section#dashboard_layout {
         padding-bottom: 8px;
         transition: all 0.3s;
       }
+    }
+  }
+  @media (max-width: 320px){
+    aside#dashboard_sidebar{
+      width: 12em;
     }
   }
 }
