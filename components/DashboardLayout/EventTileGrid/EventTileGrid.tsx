@@ -4,14 +4,7 @@ import useSWR from "swr";
 import { Key } from "react";
 
 const fetcher = async () => {
-  const response = await fetch("http://localhost:3000/api/events", {
-    //   mode: "no-cors",
-    // headers: {
-    //   "Content-Type": "application/json",
-    //   "X-Master-Key":
-    //     "$2b$10$QvUCIfVAdeNUyx9E1ZlcIuyIOC56xhYsXP//j/KfYTP9de.JoWB3C",
-    // },
-  });
+  const response = await fetch("/api/events", {});
   const data = await response.json();
   return data;
 };
@@ -22,7 +15,7 @@ export default function EventTileGrid(props: { title: String }) {
   if (error) {
     return (
       <>
-        <p>An error occurred</p>;
+        <p>An error occurred</p>
       </>
     );
   }

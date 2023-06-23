@@ -10,3 +10,15 @@ export interface LoginUserParams {
   email: string;
   password: string;
 }
+
+export interface iCompList {
+  _id: string;
+  title: string;
+  result: Array<iCompList>;
+}
+
+export interface iFileType {
+  _id: string;
+  title: string;
+  result: Array<iFileType>;
+}

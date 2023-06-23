@@ -4,7 +4,7 @@ export default function AdminSideBarList() {
       <ul>
         <li>
           <a href="#" className="active">
-            <i className="icon-dashboard"></i> Add Event
+            <i className="icon-competitor"></i>Upload PDF
           </a>
         </li>
       </ul>

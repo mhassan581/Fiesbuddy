@@ -19,12 +19,14 @@ export default function NewPassword() {
               placeholder="Password"
               id="password"
               name="password"
+              onChange={() => {}}
             />
             {/* CONFIRM PASSWORD */}
             <CustomPassword
               placeholder="Confirm Password"
               id="confirmPassword"
               name="confirmPassword"
+              onChange={() => {}}
             />
             {/* SUBMIT / LOGIN */}
             <div className={`${style.form_group}`}>

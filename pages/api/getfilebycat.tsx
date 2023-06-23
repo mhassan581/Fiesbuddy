@@ -12,33 +12,36 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const id = new Types.ObjectId(req.body.id);
       console.log("Event ID:", id);
-  
-      const files = await fileUpload.aggregate([
-        { $match: {
-          fileCategory: new Types.ObjectId(req.body.id),
-          event: new Types.ObjectId(req.body.eid)
-        }},
-        {
-          $lookup: {
-            from: "filecategories",
-            localField: "fileCategory",
-            foreignField: "_id",
-            as: "Category",
+
+      const files = await fileUpload
+        .aggregate([
+          {
+            $match: {
+              fileCategory: new Types.ObjectId(req.body.id),
+              event: new Types.ObjectId(req.body.eid),
+            },
           },
-        },
-      ]);
-  
+          {
+            $lookup: {
+              from: "filecategories",
+              localField: "fileCategory",
+              foreignField: "_id",
+              as: "Category",
+            },
+          },
+        ])
+        .then((result) => {
+          return res.status(201).json({
+            success: true,
+            result,
+          });
+        });
       console.log("Matched Files:", files);
-  
-      return res.status(200).json(files);
     } catch (error) {
       console.log(error);
       // return res.status(400).json({ error: error.message });
     }
-  }
-  
-   
-  else {
+  } else {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 };

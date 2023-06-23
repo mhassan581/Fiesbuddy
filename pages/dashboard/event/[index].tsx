@@ -15,7 +15,11 @@ export default function DashboardHome() {
       </Head>
       <DashboardLayout>
         <h1>{eventId}</h1>
-        <FileList title="Competitors List:" />
+        <FileList
+          title="Competitors List:"
+          fileType="64947d60b1254a111359420c"
+        />
+        <FileList title="Recalls:" fileType="64947e31b1254a1113594219" />
       </DashboardLayout>
     </>
   );
