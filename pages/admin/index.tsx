@@ -117,6 +117,9 @@ export default function AddFile() {
     console.log(data);
   };
 
+
+ 
+
   return (
     <>
       <Head>
@@ -199,14 +202,24 @@ export default function AddFile() {
               </div>
               {/* Say something* */}
               <div className="form_group">
-                <label htmlFor="file">Select File*</label>
-                <input
-                  type="file"
-                  className="form-control"
-                  name="file"
-                  onChange={(e: any) => setFile(e.target.files[0])}
-                  required
-                />
+                  <label htmlFor="file">Select File*</label>
+                <div className="upload">
+                  <label htmlFor="file">Select PDF File*</label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    name="file"
+                    onChange={(e: any) => setFile(e.target.files[0])}
+                    accept = "application/pdf,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" 
+                    
+                    required
+                  />
+                  
+                  <img
+                    src={`/images/uplaodpdf.png`}
+                    alt=""
+                  />
+                </div>
               </div>
               {/* SUBMIT / REGISTER */}
               <div
