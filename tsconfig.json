@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].tsx", "utils/MongoDBClient.js", "pages/dashboard/event/[index.tsx]"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].tsx", "utils/MongoDBClient.js", "pages/dashboard/event/[index.tsx]", "pages/admin/index.jsx"],
   "exclude": ["node_modules"]
 }

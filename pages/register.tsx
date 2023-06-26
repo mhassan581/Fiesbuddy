@@ -64,7 +64,7 @@ export default function Register() {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
-    console.log(data);
+    // console.log(data);
   };
 
   return (

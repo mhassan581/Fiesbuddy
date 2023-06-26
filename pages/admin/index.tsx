@@ -1,47 +1,121 @@
 import Head from "next/head";
 import DashboardLayout from "@/components/DashboardLayout";
 import { getSession, useSession } from "next-auth/react";
-import Select from "react-select";
-import { useState } from "react";
-import axios from "axios";
+// import Select from "react-select";
+import { useEffect, useState } from "react";
+import axios, { AxiosError } from "axios";
 import useSWR from "swr";
-import { IUser, iFileType } from "@/types";
+import { IUser } from "@/types";
 
 export default function AddFile() {
-  const fetchCategory = async () => {
-    let category = {};
+  let events: any = undefined;
+  let categories: any = undefined;
+  const fetchEvents = async () => {
     const req = await axios
       .request({
         method: "get",
-        url: "/api/filecategory",
+        url: "/api/events",
       })
       .then((response: { data: any }) => {
-        // console.log(response.data);
         if (response.data.success) {
-          category = response.data;
+          events = response.data.result.map(
+            (item: { _id: string; title: string }) => ({
+              value: item._id,
+              label: item.title,
+              // Add or modify other properties as needed
+            })
+          );
         }
       })
       .catch((error: any) => {
         // console.log(error);
       });
 
-    return category;
+    return events;
+  };
+  const { data: eventsCategory, error: eventsError } = useSWR(
+    "events",
+    fetchEvents
+  );
+
+  const [selectedOption, setSelectedOption] = useState<string[]>([]);
+
+  const fetchCategories = async () => {
+    const req = await axios
+      .request({
+        method: "get",
+        url: "/api/filecategory",
+      })
+      .then((response: { data: any }) => {
+        if (response.data.success) {
+          categories = response.data.result.map(
+            (item: { _id: string; title: string }) => ({
+              value: item._id,
+              label: item.title,
+              // Add or modify other properties as needed
+            })
+          );
+        }
+      })
+      .catch((error: any) => {
+        // console.log(error);
+      });
+
+    return categories;
+  };
+  const { data: categoriesData, error: categoriesError } = useSWR(
+    "categories",
+    fetchCategories
+  );
+
+  const [data, setData] = useState({
+    file: "",
+    eventID: "649348672a0bac5858c7ac95",
+    title: "",
+    fileCategory: false,
+  });
+  const [submitError, setSubmitError] = useState<string>("");
+  const [pageLoading, setLoading] = useState(false);
+
+  const [file, setFile] = useState<any>(null);
+  const [uploadingStatus, setUploadingStatus] = useState<boolean>(false);
+
+  const handleFormSubmit = async () => {
+    setUploadingStatus(true);
+
+    let { data: fileData } = await axios.post("/api/s3fileupload", {
+      ...data,
+      name: file.name,
+      type: file.type,
+    });
+
+    const url = fileData.url;
+    await axios.put(url, file, {
+      headers: {
+        "Content-type": file.type,
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+
+    setUploadingStatus(false);
+    setFile(null);
+  };
+  useEffect(() => {
+    if (file) {
+      const uploadedFileDetail = async () => await handleFormSubmit();
+      uploadedFileDetail();
+    }
+  }, [file]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+    console.log(data);
   };
 
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const { data, error } = useSWR("categories", fetchCategory);
-
-  // const result = data as iFileType;
-
-  // const optionsCategory = result.result.map(
-  //   (item: { _id: string; title: string }) => ({
-  //     value: item._id,
-  //     label: item.title,
-  //     // Add or modify other properties as needed
-  //   })
-  // );
-  // console.log(optionsCategory);
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+    console.log(data);
+  };
 
   return (
     <>
@@ -55,7 +129,7 @@ export default function AddFile() {
           <div className="profile">
             <h2 className="heading">Add File</h2>
 
-            <form className="form">
+            <form onSubmit={handleFormSubmit} className="form">
               <div className="form_group">
                 <label htmlFor="title">Add Title*</label>
                 <input
@@ -64,6 +138,7 @@ export default function AddFile() {
                   className="input form-control"
                   required
                   placeholder="Men 20 & Over"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="form_row">
@@ -72,15 +147,23 @@ export default function AddFile() {
                   <div className="form_group">
                     <label htmlFor="name">Select Event*</label>
                     <span className="icon_group">
-                      <input
-                        type="text"
-                        id="name"
-                        className="input form-control"
-                        name="name"
-                        placeholder="Full Name"
+                      <select
+                        className="input form-control select-dropdown"
+                        style={{ width: "100%" }}
                         required
-                      />
-                      <span className="icon icon-frameuser"></span>
+                        name="eventID"
+                        onChange={handleSelectChange}
+                      >
+                        {eventsCategory &&
+                          eventsCategory.map((ev: any, index: number) => {
+                            return (
+                              <option key={index} value={ev.value}>
+                                {ev.label}
+                              </option>
+                            );
+                          })}
+                      </select>
+                      <span className="icon icon-setting"></span>
                     </span>
                   </div>
                 </div>
@@ -90,30 +173,52 @@ export default function AddFile() {
                   <div className="form_group">
                     <label htmlFor="email">Select File Category*</label>
                     <span className="icon_group">
-                      <Select
-                        defaultValue={selectedOption}
-                        // onChange={setSelectedOption}
-                        // options={optionsCategory}
-                        className="select-dropdown"
-                        classNamePrefix="inner-select"
-                      />
-                      <span className="icon icon-email"></span>
+                      <select
+                        className="input form-control select-dropdown"
+                        style={{ width: "100%" }}
+                        required
+                        name="fileCategory"
+                        onChange={handleSelectChange}
+                      >
+                        <option disabled selected>
+                          Select Option
+                        </option>
+                        {categoriesData &&
+                          categoriesData.map((ev: any, index: number) => {
+                            return (
+                              <option key={index} value={ev.value}>
+                                {ev.label}
+                              </option>
+                            );
+                          })}
+                      </select>
+                      <span className="icon icon-rresult"></span>
                     </span>
                   </div>
                 </div>
               </div>
               {/* Say something* */}
               <div className="form_group">
-                <input type="file" />
+                <label htmlFor="file">Select File*</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  name="file"
+                  onChange={(e: any) => setFile(e.target.files[0])}
+                  required
+                />
               </div>
-
               {/* SUBMIT / REGISTER */}
-              <div className="form_group">
+              <div
+                className="form_group"
+                style={{ marginTop: "1em", width: "100%" }}
+              >
                 <button id="register" type="submit" className="btn btn_primary">
                   Submit
                 </button>
               </div>
             </form>
+            {submitError && submitError}
           </div>
         }
       </DashboardLayout>

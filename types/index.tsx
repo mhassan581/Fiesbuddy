@@ -22,3 +22,12 @@ export interface iFileType {
   title: string;
   result: Array<iFileType>;
 }
+
+export interface iEvent {
+  _id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  result: Array<iFileType>;
+}
