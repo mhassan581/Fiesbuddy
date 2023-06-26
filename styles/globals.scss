@@ -1328,3 +1328,62 @@ section#dashboard_layout {
     }
   }
 }
+
+section.document-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  padding: 25px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s;
+  transform: scale(0);
+  opacity: 0;
+  visibility: collapse;
+  > .inner {
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+    background-color: $white;
+    border-radius: 25px;
+    box-shadow: 0 0 16px rgb(1, 13, 23, 20%);
+    position: relative;
+    iframe {
+      height: 100%;
+      width: 100%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      height: 25px;
+      width: 25px;
+      background-color: $black;
+      border-radius: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      &::after {
+        content: "\e90b";
+        font-size: 12px;
+        color: $white;
+        font-family: "icomoon";
+      }
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &.active {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}

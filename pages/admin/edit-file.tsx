@@ -1,17 +1,21 @@
 import Head from "next/head";
-import DashboardLayout from "../../../components/DashboardLayout";
+import DashboardLayout from "@/components/DashboardLayout";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import FileList from "@/components/DashboardLayout/FileList/FileList";
 import axios from "axios";
-let categories: any = undefined;
 import useSWR from "swr";
-import useModal from "@/hooks/UseModal";
+import { ObjectId } from "mongodb";
+import mongoose from "mongoose";
 import DocumentModal from "@/components/DocumentModal/DocumentModal";
+import useModal from "@/hooks/UseModal";
 
 export default function DashboardHome() {
   const router = useRouter();
   const eventId = router.query.index;
+  let categories: any = undefined;
+  const { isOpen, toggle } = useModal();
+  const [documentURL, setDocumentURL] = useState("");
 
   const fetchCategories = async () => {
     const req = await axios
@@ -40,19 +44,23 @@ export default function DashboardHome() {
     "categories",
     fetchCategories
   );
-  const { isOpen, toggle } = useModal();
-  const [documentURL, setDocumentURL] = useState("");
 
   const url = (url: string) => {
     setDocumentURL(url);
   };
+
   return (
     <>
       <Head>
         <title>Feis Buddy</title>
       </Head>
       <DashboardLayout>
-        {/* <h1>{eventId}</h1> */}
+        <h1 onClick={toggle}>{eventId}</h1>
+        {/* <FileList
+          title="Competitors List:"
+          fileType="64947d60b1254a111359420c"
+        />
+        <FileList title="Recalls:" fileType="64947e31b1254a1113594219" /> */}
         {category &&
           category.map((ev: any, index: any) => {
             return (

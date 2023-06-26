@@ -4,7 +4,12 @@ import axios from "axios";
 import { useState } from "react";
 import { iCompList } from "@/types";
 
-export default function FileList(props: { title: string; fileType: string }) {
+export default function FileList(props: {
+  title: string;
+  fileType: string;
+  url: any;
+  showModal: any;
+}) {
   const [isActive, setActive] = useState(false);
 
   const fetcher = async () => {
@@ -81,10 +86,21 @@ export default function FileList(props: { title: string; fileType: string }) {
           <div className={`${style.grid_wrapper}`}>
             <ul className={style.grid_list}>
               {result.result.map(
-                (ev: { _id: string | null | undefined; title: string }) => {
+                (ev: {
+                  _id: string | null | undefined;
+                  title: string;
+                  file: string;
+                }) => {
                   return (
                     <>
-                      <li key={ev._id}>
+                      <li
+                        key={ev._id}
+                        data-url={ev.file}
+                        onClick={() => {
+                          props.url(ev.file);
+                          props.showModal(true);
+                        }}
+                      >
                         {ev.title}
                       </li>
                     </>

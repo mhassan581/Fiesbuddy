@@ -14,6 +14,7 @@ export interface LoginUserParams {
 export interface iCompList {
   _id: string;
   title: string;
+  file: string;
   result: Array<iCompList>;
 }
 

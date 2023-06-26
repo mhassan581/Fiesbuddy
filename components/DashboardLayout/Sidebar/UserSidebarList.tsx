@@ -8,8 +8,8 @@ export default function UserSidebarList() {
       <ul>
         <li>
           <Link
-            href="/dashboard/"
-            className={router.pathname == "/dashboard" ? "active" : ""}
+            href="/"
+            className={router.pathname == "/" ? "active" : ""}
           >
             <i className="icon-dashboard"></i> Events
           </Link>
