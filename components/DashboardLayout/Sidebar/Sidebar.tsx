@@ -40,7 +40,9 @@ export default function Sidebar(props: { isShow: boolean }) {
               <button
                 onClick={(event) => {
                   event.preventDefault();
-                  signOut();
+                  signOut({
+                    callbackUrl: "/admin",
+                  });
                 }}
               >
                 <i className="icon icon-loginlogout"></i>
