@@ -41,7 +41,7 @@ export default function Sidebar(props: { isShow: boolean }) {
                 onClick={(event) => {
                   event.preventDefault();
                   signOut({
-                    callbackUrl: `https://app.feisbuddy.com/admin`,
+                    callbackUrl: "https://app.feisbuddy.com/admin",
                   });
                 }}
               >
@@ -85,6 +85,7 @@ export default function Sidebar(props: { isShow: boolean }) {
   }, [isActive2]);
 
   return (
+    // UPDATED LOGOUT BUTTON REDIRECT
     <>
       <button
         className="humburger"
