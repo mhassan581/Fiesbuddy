@@ -15,12 +15,12 @@ export default function AdminSideBarList() {
           </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/admin/edit-file"
             className={router.pathname == "/admin/edit-file" ? "active" : ""}
           >
             <i className="icon-rresult"></i>Edit File
-          </a>
+          </Link>
         </li>
       </ul>
     </>
