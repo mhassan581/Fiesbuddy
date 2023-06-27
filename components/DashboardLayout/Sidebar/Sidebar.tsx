@@ -104,7 +104,7 @@ export default function Sidebar(props: { isShow: boolean }) {
         </button>
         <nav>
           <div className="nav_brand">
-            <Link href={"/dashboard"} aria-label="Dashboard Home">
+            <Link href={"/"} aria-label="Dashboard Home">
               <img src="/images/logo.png" className="logo" alt="" />
             </Link>
           </div>

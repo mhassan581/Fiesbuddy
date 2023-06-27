@@ -62,6 +62,7 @@ export default function DashboardHome() {
                 fileType={ev.value}
                 url={url}
                 showModal={toggle}
+                deleteable={false}
               />
             );
           })}

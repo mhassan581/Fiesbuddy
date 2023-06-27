@@ -38,8 +38,6 @@ export default function AddFile() {
     fetchEvents
   );
 
-  const [selectedOption, setSelectedOption] = useState<string[]>([]);
-
   const fetchCategories = async () => {
     const req = await axios
       .request({
@@ -80,32 +78,43 @@ export default function AddFile() {
   const [file, setFile] = useState<any>(null);
   const [uploadingStatus, setUploadingStatus] = useState<boolean>(false);
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     setUploadingStatus(true);
 
-    let { data: fileData } = await axios.post("/api/s3fileupload", {
-      ...data,
-      name: file.name,
-      type: file.type,
-    });
+    if (file) {
+      try {
+        let { data: fileData } = await axios.post("/api/s3fileupload", {
+          ...data,
+          name: file.name,
+          type: file.type,
+        });
 
-    const url = fileData.url;
-    await axios.put(url, file, {
-      headers: {
-        "Content-type": file.type,
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
+        const url = fileData.url;
+        await axios.put(url, file, {
+          headers: {
+            "Content-type": file.type,
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+      } catch (error: unknown) {
+        if (error instanceof AxiosError) {
+          const errorMsg = error.response?.data?.error;
+          setSubmitError(errorMsg);
+        }
+      }
+    }
 
     setUploadingStatus(false);
     setFile(null);
   };
-  useEffect(() => {
-    if (file) {
-      const uploadedFileDetail = async () => await handleFormSubmit();
-      uploadedFileDetail();
-    }
-  }, [file]);
+  // useEffect(() => {
+  //   if (file) {
+  //     const uploadedFileDetail = async () => await handleFormSubmit();
+  //     uploadedFileDetail();
+  //   }
+  // }, [file]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
@@ -116,9 +125,6 @@ export default function AddFile() {
     setData({ ...data, [event.target.name]: event.target.value });
     console.log(data);
   };
-
-
- 
 
   return (
     <>
@@ -202,7 +208,7 @@ export default function AddFile() {
               </div>
               {/* Say something* */}
               <div className="form_group">
-                  <label htmlFor="file">Select File*</label>
+                <label htmlFor="file">Select File*</label>
                 <div className="upload">
                   <label htmlFor="file">Select PDF File*</label>
                   <input
@@ -210,15 +216,11 @@ export default function AddFile() {
                     className="form-control"
                     name="file"
                     onChange={(e: any) => setFile(e.target.files[0])}
-                    accept = "application/pdf,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" 
-                    
+                    accept="application/pdf,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                     required
                   />
-                  
-                  <img
-                    src={`/images/uplaodpdf.png`}
-                    alt=""
-                  />
+
+                  <img src={`/images/uplaodpdf.png`} alt="" />
                 </div>
               </div>
               {/* SUBMIT / REGISTER */}

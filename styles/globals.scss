@@ -104,30 +104,31 @@ textarea {
     padding: 35px 15px;
     border-radius: 8px;
     background: #fff;
+    cursor: pointer;
     input::file-selector-button {
-        font-weight: bold;
-        color: dodgerblue;
-        padding: 0.5em;
-        border: thin solid grey;
-        border-radius: 3px;
-        opacity: 0
+      font-weight: bold;
+      color: dodgerblue;
+      padding: 0.5em;
+      border: thin solid grey;
+      border-radius: 3px;
+      opacity: 0;
     }
     label {
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        color: #000;
-        margin-right: 6px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #000;
+      margin-right: 6px;
     }
-   
+
     img {
-        position: absolute;
-        left: 145px;
-        width: 50px;
-        top: 16px;
+      position: absolute;
+      left: 145px;
+      width: 50px;
+      top: 16px;
     }
-  } 
-} 
+  }
+}
 .select-dropdown {
   padding-left: 50px !important;
   .inner-select__control {

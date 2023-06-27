@@ -9,6 +9,8 @@ import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 import DocumentModal from "@/components/DocumentModal/DocumentModal";
 import useModal from "@/hooks/UseModal";
+import { getSession } from "next-auth/react";
+import { IUser } from "@/types";
 
 export default function DashboardHome() {
   const router = useRouter();
@@ -70,6 +72,7 @@ export default function DashboardHome() {
                 fileType={ev.value}
                 url={url}
                 showModal={toggle}
+                deleteable={true}
               />
             );
           })}
@@ -81,4 +84,34 @@ export default function DashboardHome() {
       />
     </>
   );
+}
+
+export async function getServerSideProps(ctx: any) {
+  const session = await getSession(ctx);
+  const user = session?.user as IUser;
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: process.env.ADMIN_LOGIN as string,
+        permanent: false,
+      },
+    };
+  } else if (session) {
+    if (user.userRole !== "feisadmin") {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+    }
+  }
+
+  return {
+    props: {
+      session,
+      data: session,
+    },
+  };
 }

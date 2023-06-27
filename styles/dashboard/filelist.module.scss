@@ -41,14 +41,36 @@ section.file_list_wrapper {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        cursor: pointer;
         color: $black;
         flex: 1 0 45%;
         max-width: 50%;
         transition: all 0.3s;
-        &::after {
-          content: "\e910";
-          font-family: "icomoon";
+        // overflow: hidden;
+        .icon {
+          font-size: 18px;
+          cursor: pointer;
+
+          &.delete {
+            padding: 0 15px;
+            font-size: 14px;
+            color: $color_danger;
+            display: block;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(148, 148, 148, 0.5);
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+          }
+        }
+
+        &.deleteable {
+          padding-right: 50px;
         }
 
         &:hover {

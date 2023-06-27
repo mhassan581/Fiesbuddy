@@ -9,6 +9,7 @@ export default function FileList(props: {
   fileType: string;
   url: any;
   showModal: any;
+  deleteable: boolean;
 }) {
   const [isActive, setActive] = useState(false);
 
@@ -48,6 +49,30 @@ export default function FileList(props: {
 
   const result = data as iCompList;
 
+  const handleDelete = async (fileID: string) => {
+    const confirmDelete = confirm("Do you really want to delete this entry?");
+
+    if (confirmDelete) {
+      // alert("Delete");
+      let request = axios
+        .request({
+          method: "post",
+          maxBodyLength: Infinity,
+          url: "http://localhost:3000/api/deletefile",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: { id: fileID },
+        })
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
   if (error) {
     return (
       <>
@@ -58,7 +83,20 @@ export default function FileList(props: {
   if (!data) {
     return (
       <>
-        <p>Loading</p>
+        <section
+          className={`${style.file_list_wrapper} ${
+            isActive ? style.active : ""
+          }`}
+        >
+          <div
+            className={`${style.title_wrapper}`}
+            onClick={() => {
+              setActive(!isActive);
+            }}
+          >
+            <h1 className={`${style.title}`}>Loading...</h1>
+          </div>
+        </section>
       </>
     );
   }
@@ -85,27 +123,57 @@ export default function FileList(props: {
           </div>
           <div className={`${style.grid_wrapper}`}>
             <ul className={style.grid_list}>
-              {result.result.map(
-                (ev: {
-                  _id: string | null | undefined;
-                  title: string;
-                  file: string;
-                }) => {
-                  return (
-                    <>
-                      <li
-                        key={ev._id}
-                        data-url={ev.file}
-                        onClick={() => {
-                          props.url(ev.file);
-                          props.showModal(true);
-                        }}
-                      >
-                        {ev.title}
-                      </li>
-                    </>
-                  );
-                }
+              {result.result.length > 0 ? (
+                result.result.map(
+                  (ev: { _id: string; title: string; file: string }) => {
+                    return (
+                      <>
+                        <li
+                          key={ev._id}
+                          data-url={ev.file}
+                          className={`${
+                            props.deleteable ? style.deleteable : " "
+                          }`}
+                        >
+                          {ev.title}
+                          <span>
+                            <span
+                              onClick={() => {
+                                props.url(ev.file);
+                                props.showModal(true);
+                              }}
+                              className={`${style.icon} icon-eye_view_icon`}
+                              title="View File"
+                            ></span>
+                            {props.deleteable && (
+                              <span
+                                className={`${
+                                  style.icon + " " + style.delete
+                                } icon-close`}
+                                title="Delete File"
+                                onClick={() => {
+                                  handleDelete(ev._id);
+                                }}
+                              ></span>
+                            )}
+                          </span>
+                        </li>
+                      </>
+                    );
+                  }
+                )
+              ) : (
+                <li
+                  style={{
+                    textAlign: "center",
+                    maxWidth: "100%",
+                    flex: "100%",
+                    justifyContent: "center",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  <b>No Entries Found</b>
+                </li>
               )}
             </ul>
           </div>
