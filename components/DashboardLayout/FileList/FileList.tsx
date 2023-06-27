@@ -58,7 +58,7 @@ export default function FileList(props: {
         .request({
           method: "post",
           maxBodyLength: Infinity,
-          url: "http://localhost:3000/api/deletefile",
+          url: "/api/deletefile",
           headers: {
             "Content-Type": "application/json",
           },
