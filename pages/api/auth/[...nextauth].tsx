@@ -8,7 +8,7 @@ import { IUser } from "@/types";
 import { connectToMongoDB } from "@/utils/mongodb";
 import User from "@/models/User";
 import { compare } from "bcryptjs";
-
+// UPDATED ENV ON SERVER
 export default NextAuth({
   providers: [
     GmailProvider({
