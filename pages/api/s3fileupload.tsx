@@ -29,7 +29,7 @@ const upload = async (req: NextApiRequest, res: NextApiResponse) => {
     const parsedUrl = new URL(url);
     const fileUrl = parsedUrl.origin + parsedUrl.pathname;
     console.log(fileUrl);
-    res.status(200).json({ url });
+    // res.status(200).json({ url });
 
     connectToMongoDB().catch((err) => res.json(err));
     const uploadedFile = await fileUpload.create({
@@ -39,7 +39,7 @@ const upload = async (req: NextApiRequest, res: NextApiResponse) => {
       fileCategory: fileCategory,
     });
 
-    res.json({ data: uploadedFile });
+    res.json({ data: uploadedFile, url });
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err });

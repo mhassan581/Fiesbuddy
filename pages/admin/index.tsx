@@ -78,12 +78,12 @@ export default function AddFile() {
   const [file, setFile] = useState<any>(null);
   const [uploadingStatus, setUploadingStatus] = useState<boolean>(false);
 
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    setUploadingStatus(true);
+  const handleFormSubmit = async () => {
+    // event.preventDefault();
 
     if (file) {
+      setUploadingStatus(true);
+
       try {
         let { data: fileData } = await axios.post("/api/s3fileupload", {
           ...data,
@@ -105,16 +105,16 @@ export default function AddFile() {
         }
       }
     }
-
     setUploadingStatus(false);
     setFile(null);
   };
-  // useEffect(() => {
-  //   if (file) {
-  //     const uploadedFileDetail = async () => await handleFormSubmit();
-  //     uploadedFileDetail();
-  //   }
-  // }, [file]);
+
+  useEffect(() => {
+    if (file) {
+      const uploadedFileDetail = async () => await handleFormSubmit();
+      uploadedFileDetail();
+    }
+  }, [file]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
