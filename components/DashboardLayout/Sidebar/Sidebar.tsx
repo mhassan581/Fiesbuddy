@@ -41,7 +41,7 @@ export default function Sidebar(props: { isShow: boolean }) {
                 onClick={(event) => {
                   event.preventDefault();
                   signOut({
-                    callbackUrl: `${window.location.origin}/admin`,
+                    callbackUrl: `${window.location.origin}`,
                   });
                 }}
               >
