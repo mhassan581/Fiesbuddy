@@ -78,9 +78,10 @@ export default function AddFile() {
   const [file, setFile] = useState<any>(null);
   const [uploadingStatus, setUploadingStatus] = useState<boolean>(false);
 
+  const [category, setCategoryError] = useState();
+
   const handleFormSubmit = async () => {
     // event.preventDefault();
-
     if (file) {
       setUploadingStatus(true);
 
@@ -105,6 +106,7 @@ export default function AddFile() {
         }
       }
     }
+
     setUploadingStatus(false);
     setFile(null);
   };
@@ -118,12 +120,12 @@ export default function AddFile() {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
-    console.log(data);
+    // console.log(data);
   };
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
-    console.log(data);
+    // console.log(data);
   };
 
   return (
@@ -189,9 +191,6 @@ export default function AddFile() {
                         name="fileCategory"
                         onChange={handleSelectChange}
                       >
-                        <option disabled selected>
-                          Select Option
-                        </option>
                         {categoriesData &&
                           categoriesData.map((ev: any, index: number) => {
                             return (
