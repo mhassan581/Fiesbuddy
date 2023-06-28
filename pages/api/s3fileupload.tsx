@@ -39,7 +39,7 @@ const upload = async (req: NextApiRequest, res: NextApiResponse) => {
       fileCategory: fileCategory,
     });
 
-    res.json({ data: uploadedFile, url });
+    res.json({ success: true, data: uploadedFile, url });
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err });

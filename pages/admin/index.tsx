@@ -6,10 +6,15 @@ import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import useSWR from "swr";
 import { IUser } from "@/types";
+import { useRouter } from "next/router";
+import AbsoluteLoader from "@/components/AbsoluteLoader/AbsoluteLoader";
 
 export default function AddFile() {
   let events: any = undefined;
   let categories: any = undefined;
+
+  const router = useRouter();
+
   const fetchEvents = async () => {
     const req = await axios
       .request({
@@ -69,8 +74,8 @@ export default function AddFile() {
   const [data, setData] = useState({
     file: "",
     eventID: "649348672a0bac5858c7ac95",
-    title: "",
-    fileCategory: false,
+    title: "New File",
+    fileCategory: "64947d60b1254a111359420c",
   });
   const [submitError, setSubmitError] = useState<string>("");
   const [pageLoading, setLoading] = useState(false);
@@ -80,8 +85,8 @@ export default function AddFile() {
 
   const [category, setCategoryError] = useState();
 
-  const handleFormSubmit = async () => {
-    // event.preventDefault();
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (file) {
       setUploadingStatus(true);
 
@@ -99,24 +104,28 @@ export default function AddFile() {
             "Access-Control-Allow-Origin": "*",
           },
         });
+
+        if (fileData?.success) {
+          router.reload();
+        }
+        // console.log(fileData);
       } catch (error: unknown) {
         if (error instanceof AxiosError) {
           const errorMsg = error.response?.data?.error;
           setSubmitError(errorMsg);
         }
       }
+      setUploadingStatus(false);
+      setFile(null);
     }
-
-    setUploadingStatus(false);
-    setFile(null);
   };
 
-  useEffect(() => {
-    if (file) {
-      const uploadedFileDetail = async () => await handleFormSubmit();
-      uploadedFileDetail();
-    }
-  }, [file]);
+  // useEffect(() => {
+  //   if (file) {
+  //     const uploadedFileDetail = async () => await handleFormSubmit();
+  //     uploadedFileDetail();
+  //   }
+  // }, [file]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
@@ -137,7 +146,7 @@ export default function AddFile() {
       </Head>
       <DashboardLayout>
         {
-          <div className="profile">
+          <div className={`profile ${uploadingStatus ? "loading" : ""}`}>
             <h2 className="heading">Add File</h2>
 
             <form onSubmit={handleFormSubmit} className="form">
@@ -233,6 +242,7 @@ export default function AddFile() {
               </div>
             </form>
             {submitError && submitError}
+            <AbsoluteLoader />
           </div>
         }
       </DashboardLayout>

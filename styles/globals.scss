@@ -1078,6 +1078,13 @@ section#dashboard_layout {
             }
           }
         }
+
+        &.loading {
+          .feis_loader_wrapper {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
       }
     }
   }
