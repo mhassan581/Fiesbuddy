@@ -9,7 +9,12 @@ export default function UserSidebarList() {
         <li>
           <Link
             href="/"
-            className={router.pathname == "/" ? "active" : ""}
+            className={
+              router.asPath == "/" ||
+              router.pathname.includes("/dashboard/event/")
+                ? "active"
+                : ""
+            }
           >
             <i className="icon-dashboard"></i> Events
           </Link>
@@ -17,7 +22,12 @@ export default function UserSidebarList() {
         <li>
           <Link
             href="/dashboard/settings/"
-            className={router.asPath == "/dashboard/settings" ? "active" : ""}
+            className={
+              router.asPath == "/dashboard/settings" ||
+              router.pathname.includes("/dashboard/settings/")
+                ? "active"
+                : ""
+            }
           >
             <i className="icon-setting"></i> Settings
           </Link>

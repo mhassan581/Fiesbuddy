@@ -8,6 +8,8 @@ let categories: any = undefined;
 import useSWR from "swr";
 import useModal from "@/hooks/UseModal";
 import DocumentModal from "@/components/DocumentModal/DocumentModal";
+import { IUser } from "@/types";
+import { getSession } from "next-auth/react";
 
 export default function DashboardHome() {
   const router = useRouter();
@@ -74,4 +76,25 @@ export default function DashboardHome() {
       />
     </>
   );
+}
+
+export async function getServerSideProps(ctx: any) {
+  const session = await getSession(ctx);
+  const user = session?.user as IUser;
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+      data: session,
+    },
+  };
 }

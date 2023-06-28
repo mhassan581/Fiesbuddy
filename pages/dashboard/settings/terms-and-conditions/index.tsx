@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { signIn, signOut, useSession, SessionProvider } from "next-auth/react";
+import { signIn, signOut, useSession, SessionProvider, getSession } from "next-auth/react";
 import Link from "next/link";
 import DashboardLayout from "@/components/DashboardLayout";
+import { IUser } from "@/types";
 
 export default function AboutUs() {
 
@@ -29,4 +30,25 @@ export default function AboutUs() {
 
     </>
   );
+}
+
+export async function getServerSideProps(ctx: any) {
+  const session = await getSession(ctx);
+  const user = session?.user as IUser;
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+      data: session,
+    },
+  };
 }

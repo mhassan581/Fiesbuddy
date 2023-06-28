@@ -1,9 +1,16 @@
 import Head from "next/head";
-import { signIn, signOut, useSession, SessionProvider } from "next-auth/react";
+import {
+  signIn,
+  signOut,
+  useSession,
+  SessionProvider,
+  getSession,
+} from "next-auth/react";
 import Link from "next/link";
 import DashboardLayout from "@/components/DashboardLayout";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
+import { IUser } from "@/types";
 
 export default function AboutUs() {
   const [submitError, setSubmitError] = useState();
@@ -27,7 +34,7 @@ export default function AboutUs() {
       let res = await axios
         .request({
           method: "POST",
-          url:'/api/contact',
+          url: "/api/contact",
           headers: {
             Accept: "application/json, text/plain, */*",
             "Content-Type": "application/json",
@@ -163,4 +170,24 @@ export default function AboutUs() {
       </DashboardLayout>
     </>
   );
+}
+export async function getServerSideProps(ctx: any) {
+  const session = await getSession(ctx);
+  const user = session?.user as IUser;
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+      data: session,
+    },
+  };
 }
