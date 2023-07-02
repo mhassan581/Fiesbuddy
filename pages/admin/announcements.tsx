@@ -177,6 +177,7 @@ export default function ManageAnnouncements() {
               time: "",
             });
             setLoading(false);
+            router.reload();
           }
         });
     } catch (error: unknown) {
