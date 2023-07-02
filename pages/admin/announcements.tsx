@@ -170,7 +170,7 @@ export default function ManageAnnouncements() {
         })
         .then((response) => {
           if (response.status === 201) {
-            // console.log("Response succeeded!");
+            // console.log("Response succeeded!");push
             setData({
               title: "",
               category: "",
