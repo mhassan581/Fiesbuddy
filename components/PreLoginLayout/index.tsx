@@ -31,7 +31,7 @@ export default function PreLoginLayout(props: {
               aria-label="Go Back"
               onClick={() => router.push(props.onBack)}
             ></button>
-            <AbsoluteLoader />
+            <AbsoluteLoader isShowing={false} />
           </div>
         </div>
       </section>

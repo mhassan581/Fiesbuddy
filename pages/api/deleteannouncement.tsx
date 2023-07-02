@@ -19,7 +19,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(404).json({ error: "Announcement not found" });
       }
 
-      return res.status(200).json({ message: "Announcement deleted successfully" });
+      return res
+        .status(200)
+        .json({ message: "Announcement deleted successfully" });
     } catch (error) {
       console.log(error);
       // return res.status(400).json({ error: error.message });

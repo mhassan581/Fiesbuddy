@@ -38,8 +38,7 @@ export default function EventTileGrid(props: { title: String }) {
                   eventTime={``}
                   image={``}
                   facebookURL={`#`}
-                  twitterURL={`#`}
-                  googleURL={`#`}
+                  instaURL={`#`}
                 />
               );
             })}
@@ -71,9 +70,8 @@ export default function EventTileGrid(props: { title: String }) {
                     eventTime={ev.time}
                     excerpt={ev.description}
                     image={"/sample-images/event_3.png"}
-                    facebookURL={`#`}
-                    twitterURL={`#`}
-                    googleURL={`#`}
+                    facebookURL={`https://www.facebook.com/FeisBuddyy/`}
+                    instaURL={`https://www.instagram.com/feisbuddy/`}
                   />
                 );
               }

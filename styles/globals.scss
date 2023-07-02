@@ -7,6 +7,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */
@@ -50,6 +51,10 @@ p {
   margin: 0em 0;
 }
 
+.heading-1 {
+  font-size: 24px;
+}
+
 a {
   text-decoration: none;
   color: $color_primary;
@@ -74,6 +79,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
+input[type="time"],
 select,
 textarea {
   &.form-control {
@@ -206,6 +212,10 @@ select {
   &.btn_primary {
     background: linear-gradient(142.5deg, #95cff5 1.12%, #61bbf9 98.54%);
     color: #ffffff;
+  }
+  &.btn_danger {
+    background-color: $color_danger;
+    color: $white;
   }
 }
 
@@ -989,11 +999,12 @@ section#dashboard_layout {
         }
       }
       .privacy_policy {
-        h3 {
+        h3,
+        h4 {
           margin-bottom: 20px;
         }
         p {
-          font-size: 18px;
+          font-size: 16px;
           color: $black;
           margin-bottom: 20px;
         }
@@ -1439,4 +1450,7 @@ section.document-modal {
     opacity: 1;
     visibility: visible;
   }
+}
+
+section#manage_announcements {
 }

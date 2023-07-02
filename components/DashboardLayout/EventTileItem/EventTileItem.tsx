@@ -13,8 +13,7 @@ export default function EventTileItem(props: {
   excerpt: String;
   image: String;
   facebookURL: string;
-  twitterURL: string;
-  googleURL: string;
+  instaURL: string;
 }) {
   const router = useRouter();
   const handleItemClick = (eventId: string) => {
@@ -57,31 +56,19 @@ export default function EventTileItem(props: {
                 href={props.facebookURL}
                 className={style.facebook}
                 aria-label="Facebook"
+                target="_blank"
               >
                 <i className="icon-fb_facebook_facebook-logo_icon-1"></i>
               </a>
             </li>
             <li>
               <a
-                href={props.twitterURL}
-                className={style.twitter}
-                aria-label="Twitter"
+                href={props.instaURL}
+                className={style.instagram}
+                aria-label="Instagram"
+                target="_blank"
               >
-                <i className="icon-twitter_bird_icon-1"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href={props.googleURL}
-                className={style.google}
-                aria-label="Twitter"
-              >
-                <i className="icon-google_brand_branding_logo_network_icon">
-                  <span className="path1"></span>
-                  <span className="path2"></span>
-                  <span className="path3"></span>
-                  <span className="path4"></span>
-                </i>
+                <i className="icon-instagram_icon"></i>
               </a>
             </li>
           </ul>

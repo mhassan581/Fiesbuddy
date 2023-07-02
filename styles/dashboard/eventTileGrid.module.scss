@@ -96,6 +96,9 @@ $tile_radius: 30px;
               &.twitter {
                 color: $color_twitter;
               }
+              &.instagram {
+                color: #e1306c;
+              }
             }
           }
         }
@@ -206,7 +209,7 @@ $tile_radius: 30px;
   box-shadow: 0px 24px 49px rgba(136, 136, 136, 0.15);
   background-color: $white;
   flex: 1 0 30%;
-  cursor: pointer;
+  cursor: default;
   .visual {
     width: 100%;
     height: auto;
@@ -284,7 +287,7 @@ $tile_radius: 30px;
       .excerpt {
         font-size: 14px;
       }
-      .meta{
+      .meta {
         font-size: 14px;
       }
     }

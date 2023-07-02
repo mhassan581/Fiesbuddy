@@ -32,3 +32,11 @@ export interface iEvent {
   time: string;
   result: Array<iFileType>;
 }
+
+export interface iAnnouncement {
+  _id: string;
+  title: string;
+  time: string;
+  category: string;
+  result: Array<iAnnouncement>;
+}

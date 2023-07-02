@@ -12,10 +12,12 @@ import { getSession } from "next-auth/react";
 import style from "@/styles/dashboard/eventTileGrid.module.scss";
 import FormatTime24Hour from "../../../utils/FormatTime24Hour";
 import moment from "moment";
+import AnnouncementList from "@/components/DashboardLayout/AnnouncementList/AnnouncementList";
 
 export default function DashboardHome() {
   let categories: any = undefined;
   let eventDetails: any = undefined;
+
   const router = useRouter();
   const eventId = router.query.index;
 
@@ -75,7 +77,6 @@ export default function DashboardHome() {
     "eventDetails",
     fetchEventDetails
   );
-  // console.log(events[0]);
 
   const { isOpen, toggle } = useModal();
   const [documentURL, setDocumentURL] = useState("");
@@ -100,15 +101,22 @@ export default function DashboardHome() {
                 <ul className={style.social_links}>
                   <li>
                     <a
-                      href={`s`}
+                      href={`https://www.facebook.com/FeisBuddyy/`}
                       className={style.facebook}
                       aria-label="Facebook"
+                      target="_blank"
                     >
                       <i className="icon-fb_facebook_facebook-logo_icon-1"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={``} className={style.instagram} aria-label="Twitter">
+                    <a
+                      href={`https://www.instagram.com/feisbuddy/`}
+                      className={style.instagram}
+                      aria-label="Instagram"
+                      target="_blank"
+
+                    >
                       <i className="icon-instagram_icon"></i>
                     </a>
                   </li>
@@ -131,6 +139,9 @@ export default function DashboardHome() {
           </div>
         )}
         {/* <h1>{eventId}</h1> */}
+        {/* ANNOUNCEMENT */}
+        <AnnouncementList title={`Ball Room Announcements`} />
+        {/* FILES */}
         {category &&
           category.map((ev: any, index: any) => {
             return (
