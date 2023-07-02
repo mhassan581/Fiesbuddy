@@ -289,6 +289,13 @@ button {
   }
 }
 
+.submit_message {
+  font-size: 14px;
+  &.success {
+    color: $color_success !important;
+  }
+}
+
 .backbtn {
   font-weight: 500;
   font-size: 20px;
@@ -328,6 +335,11 @@ button {
       8.68px 26.6px 0 0 rgba(0, 145, 255, 0.6),
       -8.68px 26.6px 0 0 rgba(0, 145, 255, 0.8), -22.7px 16.5px 0 0 #0091ff;
     animation: spinner-b87k6z 1s infinite linear;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }
 

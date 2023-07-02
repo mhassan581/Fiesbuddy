@@ -47,7 +47,7 @@ export default function EventTileItem(props: {
             </span>
             <span className={style.time}>
               <i className={`${style.icon} icon-clock`}></i>
-              <span>{FormatTime24Hour(props.eventTime)}</span>
+              <span>{props.eventTime}</span>
             </span>
           </p>
           <p className={style.excerpt}>{props.excerpt}</p>

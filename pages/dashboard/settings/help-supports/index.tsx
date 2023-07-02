@@ -11,15 +11,17 @@ import DashboardLayout from "@/components/DashboardLayout";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { IUser } from "@/types";
+import AbsoluteLoader from "@/components/AbsoluteLoader/AbsoluteLoader";
 
 export default function AboutUs() {
+  const [loading, setLoading] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState();
   const [data, setData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
+  const [submitSuccess, setSubmitSuccess] = useState("");
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
     // console.log(data);
@@ -31,6 +33,7 @@ export default function AboutUs() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
+      setLoading(true);
       let res = await axios
         .request({
           method: "POST",
@@ -42,13 +45,15 @@ export default function AboutUs() {
           data: JSON.stringify(data),
         })
         .then((response) => {
-          if (response.status === 200) {
-            console.log("Response succeeded!");
+          if (response.status === 201) {
+            // console.log("Response succeeded!");
             setData({
               name: "",
               email: "",
               message: "",
             });
+            setLoading(false);
+            setSubmitSuccess("Message Sent");
           }
         });
     } catch (error: unknown) {
@@ -56,7 +61,9 @@ export default function AboutUs() {
         const errorMsg = error.response?.data?.error;
         setSubmitError(errorMsg);
       }
+      setLoading(false);
     }
+    setLoading(false);
   };
   return (
     <>
@@ -98,7 +105,7 @@ export default function AboutUs() {
               Email: info@abcd.com
             </Link>
           </div>
-
+          <p className="submit_message success">{submitSuccess && submitSuccess}</p>
           <h3 className="heading">Share your thoughts:</h3>
           <form onSubmit={handleSubmit} className="form">
             <div className="form_row">
@@ -115,6 +122,7 @@ export default function AboutUs() {
                       placeholder="Full Name"
                       required
                       onChange={handleInputChange}
+                      value={data.name}
                     />
                     <span className="icon icon-frameuser"></span>
                   </span>
@@ -133,6 +141,7 @@ export default function AboutUs() {
                       placeholder="email@gmail.com"
                       required
                       onChange={handleInputChange}
+                      value={data.email}
                     />
                     <span className="icon icon-email"></span>
                   </span>
@@ -150,10 +159,10 @@ export default function AboutUs() {
                   placeholder="Say something*"
                   onChange={handleTextArea}
                   required
+                  value={data.message}
                 ></textarea>
               </span>
             </div>
-
             {/* SUBMIT / REGISTER */}
             <div className="form_group">
               <button
@@ -167,6 +176,7 @@ export default function AboutUs() {
             </div>
           </form>
         </div>
+        <AbsoluteLoader isShowing={loading ? true : false} />
       </DashboardLayout>
     </>
   );

@@ -3,7 +3,6 @@
 $tile_radius: 30px;
 
 .event_tile_grid_wrapper {
- 
   .event_tiles {
     display: flex;
     flex-direction: row;
@@ -157,8 +156,8 @@ $tile_radius: 30px;
         flex: 1 0 100%;
         max-width: 100%;
         margin: 0;
-        .visual{
-            height: 225px;
+        .visual {
+          height: 225px;
         }
       }
     }
@@ -193,6 +192,100 @@ $tile_radius: 30px;
             }
           }
         }
+      }
+    }
+  }
+}
+
+.event_tile_post {
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: $tile_radius;
+  margin: 10px;
+  box-shadow: 0px 24px 49px rgba(136, 136, 136, 0.15);
+  background-color: $white;
+  flex: 1 0 30%;
+  cursor: pointer;
+  .visual {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    img {
+      max-width: 150px;
+      height: auto;
+    }
+  }
+  .description {
+    padding: 25px;
+    display: block;
+
+    .title_wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        color: $black;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .social_links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 15px;
+        li {
+          margin-left: 15px;
+          font-size: 16px;
+          a {
+            &.facebook {
+              color: $color_faceook;
+            }
+            &.instagram {
+              color: #e1306c;
+            }
+          }
+        }
+      }
+      @media (max-width: 768px) {
+      }
+    }
+
+    .meta {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+      color: $color_grey;
+      > span {
+        display: flex;
+        align-items: center;
+        .icon {
+          margin-right: 5px;
+        }
+      }
+    }
+    .excerpt {
+      margin-top: 25px;
+      font-size: 18px;
+      color: $color_grey;
+      line-height: 150%;
+      transition: all 0.3s;
+    }
+    @media (max-width: 768px) {
+      .excerpt {
+        font-size: 14px;
+      }
+      .meta{
+        font-size: 14px;
       }
     }
   }

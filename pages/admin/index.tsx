@@ -83,8 +83,6 @@ export default function AddFile() {
   const [file, setFile] = useState<any>(null);
   const [uploadingStatus, setUploadingStatus] = useState<boolean>(false);
 
-  const [category, setCategoryError] = useState();
-
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (file) {
@@ -242,7 +240,7 @@ export default function AddFile() {
               </div>
             </form>
             {submitError && submitError}
-            <AbsoluteLoader />
+            <AbsoluteLoader isShowing={uploadingStatus} />
           </div>
         }
       </DashboardLayout>

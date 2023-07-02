@@ -24,10 +24,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       html: `<div>${req.body.message}</div>`,
     };
     transporter.sendMail(mailData, function (err: any, info: any) {
-      if (err) console.log(err);
-      else console.log(info);
+      // if (err) console.log(err);
+      //else console.log(info);
+      if (err) {
+        return res.status(400).json({
+          success: false,
+          err,
+        });
+      } else {
+        return res.status(201).json({
+          success: true,
+        });
+      }
     });
-    res.status(201);
+    // res.status(201);
   } else {
     res.status(405).json({ error: "Method Not Allowed" });
   }
