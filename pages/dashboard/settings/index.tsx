@@ -57,7 +57,7 @@ export default function AboutUs() {
                 <h4>Terms & Conditions</h4>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 href={"/dashboard/settings/help-supports"}
                 aria-label="setting"
@@ -65,7 +65,7 @@ export default function AboutUs() {
               >
                 <h4>Help & Support</h4>
               </Link>
-            </li>
+            </li> */}
             {/* <li>
               <Link href={"/dashboard/settings/faq"} aria-label="setting" className="list_item">
                 <h4>FAQs</h4>

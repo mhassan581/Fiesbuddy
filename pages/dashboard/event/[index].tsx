@@ -122,7 +122,7 @@ export default function DashboardHome() {
                   </li>
                 </ul>
               </div>
-              <p className={style.meta}>
+              {/* <p className={style.meta}>
                 <span>
                   <span className={`${style.icon} icon-calender`}></span>
                   <span>
@@ -133,7 +133,7 @@ export default function DashboardHome() {
                   <span className={`${style.icon} icon-clock`}></span>
                   <span>{events.time}</span>
                 </span>
-              </p>
+              </p> */}
               <p className={style.excerpt}>{events.description}</p>
             </div>
           </div>

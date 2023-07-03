@@ -17,8 +17,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       secure: true,
     });
     const mailData = {
-      from: "no-reply@feisbuddy.com",
-      to: "mumtaz.ahmedjp@gmail.com",
+      from: '"no-reply@feisbuddy.com" <foo@example.com>',
+      to: `${req.body.email}, info@feisbuddy.com`,
       subject: `Message From ${req.body.name} & Email as ${req.body.email}`,
       text: req.body.message,
       html: `<div>${req.body.message}</div>`,

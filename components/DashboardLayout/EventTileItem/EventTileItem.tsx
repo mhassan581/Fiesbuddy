@@ -35,7 +35,7 @@ export default function EventTileItem(props: {
         </div>
         <div className={style.description}>
           <h4 className={style.title}>{props.title}</h4>
-          <p className={style.meta}>
+          {/* <p className={style.meta}>
             <span className={style.date}>
               <i className={`${style.icon} icon-calender`}></i>
               <span>
@@ -48,7 +48,7 @@ export default function EventTileItem(props: {
               <i className={`${style.icon} icon-clock`}></i>
               <span>{props.eventTime}</span>
             </span>
-          </p>
+          </p> */}
           <p className={style.excerpt}>{props.excerpt}</p>
           <ul className={style.social_links}>
             <li>

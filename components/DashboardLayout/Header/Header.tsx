@@ -25,7 +25,7 @@ export default function Header(props: {
           </div> */}
           <div className="content">
             <h2 className="title">Welcome To Feis Buddy {props.userName}</h2>
-            <p className="tag">Everything is organize by your one tap.</p>
+            {/* <p className="tag">Everything is organize by your one tap.</p> */}
           </div>
         </div>
         {/* <div className="search_area">

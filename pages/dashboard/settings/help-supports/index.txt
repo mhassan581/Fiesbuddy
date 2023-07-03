@@ -84,29 +84,18 @@ export default function AboutUs() {
 
         <div className="help_support">
           <h3 className="heading">Help & Supports:</h3>
-          <p>
-            Worem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-            tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-            feugiat lectus. Class aptent taciti sociosqu ad litora torquent per
-            conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus
-            enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex.
-            Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum
-            lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in
-            elementum tellus.
-          </p>
-
           <div className="connect">
-            <Link href={"tel:+123456789"} aria-label="Back" className="">
-              Call Now: (+1) 123455676
+            <Link href={"tel:6172651928"} className="">
+              Call Now: 617 265-1928
             </Link>
-            <Link href={"mail:info@abcd.com"} aria-label="Back" className="">
-              Email: info@abcd.com
+            <Link href={"mail:info@feisbuddy.com"} className="">
+              Email: info@feisbuddy.com
             </Link>
           </div>
-          <p className="submit_message success">{submitSuccess && submitSuccess}</p>
-          <h3 className="heading">Share your thoughts:</h3>
+          <p className="submit_message success">
+            {submitSuccess && submitSuccess}
+          </p>
+          {/* <h3 className="heading">Share your thoughts:</h3> */}
           <form onSubmit={handleSubmit} className="form">
             <div className="form_row">
               <div className="form_col">
