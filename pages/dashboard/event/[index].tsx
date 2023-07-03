@@ -90,6 +90,7 @@ export default function DashboardHome() {
         <title>Feis Buddy</title>
       </Head>
       <DashboardLayout>
+        {/* EVENT DETAILS */}
         {events && (
           <div className={style.event_tile_post}>
             <div className={style.visual}>
@@ -115,7 +116,6 @@ export default function DashboardHome() {
                       className={style.instagram}
                       aria-label="Instagram"
                       target="_blank"
-
                     >
                       <i className="icon-instagram_icon"></i>
                     </a>
@@ -138,7 +138,6 @@ export default function DashboardHome() {
             </div>
           </div>
         )}
-        {/* <h1>{eventId}</h1> */}
         {/* ANNOUNCEMENT */}
         <AnnouncementList title={`Ball Room Announcements`} />
         {/* FILES */}

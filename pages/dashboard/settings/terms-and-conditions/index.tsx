@@ -317,12 +317,418 @@ export default function AboutUs() {
           </p>
           <h4>
             b.) DMCA Notice and DMCA Procedure for Copyright Infringement
-            Claims.{" "}
+            Claims.
           </h4>
           <p>
             You may submit a notification pursuant to the Digital Millennium
             Copyright Act (DMCA) by providing our company with the following
-            information in writing (see 17 U.S.C 512(c)(3) for further detail):{" "}
+            information in writing (see 17 U.S.C 512(c)(3) for further detail):
+          </p>
+          <ul>
+            <li>
+              An electronic or physical signature of the copyright owner or a
+              person authorized to act on behalf of the owner of the copyrighted
+              work;
+            </li>
+            <li>
+              A description of the copyrighted work that you claim has been
+              infringed, including the URL(s) where the copyrighted work exists
+              or a copy of the copyrighted work;
+            </li>
+            <li>
+              Your contact details including a personal name, address, phone
+              number, and an e-mail address;
+            </li>
+            <li>
+              A statement that the copyright infringement is not authorized and
+              that the request to remove the copyrighted work is in good faith;
+              and
+            </li>
+            <li>
+              A statement by you, with language that includes “under penalty of
+              perjury,” that the information included in the infringement
+              removal is accurate.
+            </li>
+          </ul>
+          <p>
+            Upon receipt of a copyright infringement notification, we will take
+            whatever steps are required to remove the copyrighted content from
+            the website or the services.
+          </p>
+          <h3>INTELLECTUAL PROPERTY.</h3>
+          <p>
+            Except as otherwise indicated, all source coding, databases,
+            functionalities, software, graphic designs, and media of any kind
+            (e.g. audio, video, text, photos, etc.), content, trademarks,
+            service marks, logos, and copyrights are considered to be
+            intellectual and proprietary information (“intellectual property”).
+            Such intellectual information is under our ownership and protected
+            by local, state, national, and international laws and will be
+            defended.
+          </p>
+          <p>
+            No intellectual property is permitted to be copied, reproduced,
+            aggregated, republished, uploaded, posted, publicly displayed,
+            encoded, translated, transmitted, distributed, sold, licensed, or
+            otherwise exploited for commercial purposes without our express
+            prior written permission.
+          </p>
+          <h3>USER OBLIGATIONS.</h3>
+          <p>
+            You, as a user of the website or any of its services, agree to the
+            following:
+          </p>
+          <ul>
+            <li>
+              Any information used for registration purposes, if required, must
+              be submitted in an accurate and completed manner;
+            </li>
+            <li>
+              If any information should change regarding your account, you agree
+              to change it in a timely fashion;
+            </li>
+            <li>
+              You have the legal capacity to understand, agree with, and comply
+              with this Agreement;
+            </li>
+            <li>
+              That you are not considered a minor in the jurisdiction where you
+              reside or are accessing the website or its services;
+            </li>
+            <li>
+              That you will not access the website or its services through the
+              use of bots, scripts, or any other use than the traditional manner
+              as is intended; and
+            </li>
+            <li>
+              That you will use the website and its services in an authorized
+              and legal manner in accordance with this Agreement.
+            </li>
+          </ul>
+          <p>
+            In regard to any of the information submitted by you, if it should
+            be deemed inaccurate, out of date, or incomplete, we reserve the
+            right to terminate your access to the website or account and any
+            future intended use.
+          </p>
+          <h3>USER ACCOUNTS.</h3>
+          <p>
+            If our website allows the creation of a user account of any type,
+            you agree to be responsible for safeguarding its information
+            including account data, connected e-mails, passwords, and any other
+            personal information located therein. If you are made aware of any
+            breach of unauthorized use of the account, to notify us as soon as
+            possible. Furthermore, you agree not to disclose any password
+            created with any 3rd party other than secured services used to
+            assist with saving passwords on your behalf.
+          </p>
+          <p>
+            If the creation of a username is allowed when making an account,
+            such username must be appropriate for public viewing and not violate
+            any trademark, copyright, or other protected names or marks.
+          </p>
+          <h3>THIRD (3RD) PARTY WEBSITE AND CONTENT.</h3>
+          <p>
+            Our website or services may contain links to 3rd party websites or
+            services that are not owned or controlled by us. Therefore, we
+            assume no responsibility for the content, privacy policies, terms of
+            use, practices, services, experiences, activities, or any other acts
+            by 3rd parties. You acknowledge that if you are to be re-directed or
+            forwarded to such 3rd party website, you hold us harmless and free
+            of liability for any action that should occur on such websites,
+            which may or may not include damages, losses, or any other claims.
+          </p>
+          <h3>ADVERTISING.</h3>
+          <p>
+            In the event that we host, display, recommend, or link to websites
+            or services in exchange for a fee (“advertisements”), it shall be
+            known that such websites and services are often not known to us and
+            are provided via advertisement networks based on user data. We do
+            not own or control such advertisements and assume no responsibility
+            for the content, privacy policies, terms of use, practices,
+            services, experiences, activities, or any other acts. Our only
+            affiliation with such advertisements is the payment per display,
+            clicks, or any other monetary benefit in accordance with its terms
+            and conditions or affiliate terms.
+          </p>
+          <p>
+            Any advertisements used are subject to the Digital Millennium
+            Copyright Act (“DMCA”) policies. There will be no refund or
+            compensation related to a DMCA takedown of said advertisements. Our
+            relationship with advertisers begins and ends with us providing
+            space for the placement of such advertisements.
+          </p>
+          <h3>SITE MANAGEMENT.</h3>
+          <p>
+            To ensure the best experience for all users of our website and
+            services, we reserve the right, in our sole discretion, to do the
+            following:
+          </p>
+          <ul>
+            <li>
+              To monitor our website, services, and any other content for
+              violations by users of this Agreement;
+            </li>
+            <li>
+              To take appropriate actions against our users, including legal
+              action, for those who may have violated this Agreement or have
+              attempted to defraud or cause harm to other users;
+            </li>
+            <li>
+              To refuse, restrict, limit, disable, or remove any and all files
+              and Content which, due to excessive size limits or other
+              properties, are burdensome to our systems or other users; and
+            </li>
+            <li>
+              To otherwise manage our website and services in such a way as to
+              protect our rights and property and to encourage the optimal
+              running of said websites and services.
+            </li>
+          </ul>
+          <h3>PRIVACY POLICY.</h3>
+          <p>
+            Your access to and use of our website or services is conditional
+            upon your acceptance of our privacy policy. Our privacy policy
+            describes our rules and procedures on the collection, use, and
+            disclosure of your personal information and details your privacy
+            rights and how the law protects you and such data. It is recommended
+            for all users to read to know their rights. Our privacy policy can
+            be found in the footer area of the website.
+          </p>
+          <p>
+            We maintain the right to store certain data that you have
+            transmitted by the use of the website or any of our services. You
+            are solely responsible for the data you transmit and how it relates
+            to any activity you have undertaken when using the website and any
+            of its services. Therefore, you agree that we have no liability to
+            you for any loss, breach, or corruption of any data and hereby waive
+            any right of action against us that may or may not arise from such
+            loss, breach, or corruption.
+          </p>
+          <h3>TERMINATION.</h3>
+          <p>
+            We may terminate or suspend your account for any reason and at our
+            sole discretion. If your account is suspended or terminated, we may
+            or may not provide prior notice. Upon termination, your access to
+            the website and/or services will cease immediately.
+          </p>
+          <p>
+            If you wish to terminate your relationship with us, such termination
+            can be made by simply discontinuing your use of the website and its
+            services.
+          </p>
+          <h3>GOVERNING LAW.</h3>
+          <p>
+            The laws governing the company’s jurisdiction mentioned herein shall
+            govern this Agreement, including your use and access to the website
+            and services. Your use of this website, services, and any mobile app
+            may be subject to other local, state, national, and international
+            laws.
+          </p>
+          <h3>DISPUTE RESOLUTION.</h3>
+          <p>
+            If you should raise any dispute about the website, its content, or
+            any of the services offered, it is required first to attempt to
+            resolve the dispute formally by contacting us.
+          </p>
+          <p>
+            <b>a.) Mediation.</b> If a dispute cannot be agreed upon by the
+            parties, it shall be moved to mediation for a period of 30 days with
+            at least 10 hours to be committed by each party in accordance with
+            the procedures of the United States Arbitration & Mediation. All
+            costs related to said mediation shall be shared equally by both
+            parties.
+          </p>
+          <p>
+            <b>b.) Arbitration.</b> If the dispute cannot be agreed upon during
+            the mediation period, then the dispute will be submitted to binding
+            arbitration in the jurisdiction of governing law.
+          </p>
+          <p>
+            We maintain the right to bring proceedings regarding the substance
+            of any dispute in the courts of the country where you or we reside.
+          </p>
+          <h3>{`”AS-IS” DISCLAIMER.`}</h3>
+          <p>
+            {`It is recognized to you, as a user of the website and any services
+            offered, that they are provided on an “as-is,” “where is,” and “as
+            available” basis, including faults and defects without warranty.`}
+          </p>
+          <p>
+            To the maximum extent permitted under applicable law, the company,
+            on its own behalf and those of its affiliates, licensors, and
+            service providers, expressly disclaim all warranties, whether
+            express, implied, statutory, or otherwise, with respect to the said
+            website and any services offered, including all implied warranties
+            of merchantability, fitness for a particular purpose, title and
+            non-infringement, and warranties that may arise out of the course of
+            dealing, course of performance, usage or trade practice. Without
+            limitation to the foregoing, we provide no warranty or undertaking,
+            and make no representation of any kind, that the content or any
+            services provided will meet your requirements, achieve any intended
+            results, be compatible or work with any other software,
+            applications, systems, devices, or services, including operating
+            without interruption, or meet any performance or reliability
+            standards or be error and bug-free from any defects that can or will
+            be corrected.
+          </p>
+          <p>
+            Without limiting the foregoing, neither we nor any of our providers
+            make any representation or warranty of any kind, express or limited,
+            in regard to the following:
+          </p>
+          <ul>
+            <li>
+              The operation or availability of the website or any services, or
+              the information content, and materials or products included
+              herein;
+            </li>
+            <li>
+              The website or any services being uninterrupted or bug-free;
+            </li>
+            <li>
+              The accuracy, reliability, or currency of any information or
+              content provided through the website or services; and
+            </li>
+            <li>
+              The website or any services, servers, content, or e-mails sent on
+              behalf of our company is free of viruses, scripts, trojan horses,
+              worms, malware, timebombs, or any other harmful code.
+            </li>
+          </ul>
+          <p>
+            Some jurisdictions do not allow the exclusion of certain types of
+            warranties or limitations on the applicable statutory rights of a
+            consumer. Therefore, some or all of the above exclusions and
+            limitations may not apply to you. The exclusions and limitations
+            outlined in this section will be applied to the greatest extent
+            under applicable law.
+          </p>
+          <h3>INDEMNIFICATION.</h3>
+          <p>
+            {`You agree to defend, indemnify, and hold us harmless, including any
+            of our subsidiaries, agents, or affiliates and our respective
+            officers, agents, partners, and employees, from and against any
+            loss, damage, liability, claim, or demand, including reasonable
+            attorneys’ fees and expenses, made by any 3rd party due to or
+            arising out of the following:`}
+          </p>
+          <ul>
+            <li>Our content;</li>
+            <li>Use of the website or any of our services;</li>
+            <li>Not able to use the website or any of our services;</li>
+            <li>Any breach of this Agreement;</li>
+            <li>
+              Any beach of representations and warranties set forth in this
+              Agreement;
+            </li>
+            <li>
+              Any violation of the rights of a 3rd party, including but not
+              limited to intellectual property rights; and
+            </li>
+            <li>
+              Any overt harmful act toward any other user of the website or its
+              services.
+            </li>
+          </ul>
+          <p>
+            Notwithstanding the foregoing, we reserve the right, at your
+            expense, to assume the exclusive defense and control of any matter
+            for which you are required to indemnify us, and you agree to
+            cooperate, at your expense, with our defense of such claims. We
+            agree to use reasonable efforts to notify you of any such claim,
+            action, or proceeding which is subject to this indemnification upon
+            becoming aware of it.
+          </p>
+          <h3>NOTICES.</h3>
+          <p>
+            Except as explicitly stated otherwise, any notices sent to us must
+            be sent to info@feisbuddy.com. Any notices sent to you regarding any
+            communication that must be sent in accordance with this Agreement
+            will be sent to the e-mail registered to any account created on the
+            website.
+          </p>
+          <p>
+            If notice is required to be sent via standard mail for legal or
+            other purposes, the mailing address in Section 1 of this Agreement
+            should be used.
+          </p>
+          <h3>ELECTRONIC MEANS.</h3>
+          <p>
+            When accessing the website or any of its services, sending e-mails,
+            online forms, esignatures, or any type or kind of electronic records
+            or communication, you consent that all agreements, notices,
+            disclosures, and other communications we provide to you in such
+            manner satisfies any legal requirement that such communication
+            should be in writing. You hereby agree that the use of such
+            electronic means will be regarded as sufficient and be viewed as the
+            same as its physical counterpart. Furthermore, you hereby waive any
+            rights or requirements under any statutes, regulations, rules,
+            ordinances, or other laws in any jurisdiction which require an
+            original signature or delivery or retention of non-electronic
+            records.
+          </p>
+          <h3>CALIFORNIA USERS.</h3>
+          <p>
+            If any complaint with us is not satisfactorily resolved, you can
+            contact the Complaint Assistance Unit of the Division of Consumer
+            Services of the California Department of Consumer Affairs in any of
+            the methods below:
+          </p>
+          <p>
+            <b>Mail: </b>1625 North Market Blvd, Suite N 112, Sacramento,
+            California 95834
+          </p>
+          <p>
+            <b>Telephone: </b>(800) 952-5210 <b>&</b> (916) 445-1254
+          </p>
+          <h3>UNITED STATES FEDERAL GOVERNMENT END-USER PROVISIONS.</h3>
+          <p>
+            If you are a user acting on behalf of the U.S. federal government,
+            our website and its services are treated as a “commercial item” as
+            defined under 48 C.F.R. § 2.101.
+          </p>
+          <h3>EUROPEAN UNION (EU) USERS.</h3>
+          <p>
+            If you are a European Union (EU) resident, consumer, or user, it is
+            recognized that you are entitled to specific protections on how your
+            personal information is collected. We, in our privacy policy,
+            attempt to be in accordance with such rules and regulations.
+          </p>
+          <h3>MISCELLANEOUS.</h3>
+          <p>
+            This Agreement and any policies or operating rules posted by us, on
+            the website, or through any services or in respect to such
+            constitute the entire Agreement and understanding between you, as a
+            user, and us, as a company. Our failure to exercise or enforce any
+            right or provision of this Agreement will not operate as a waiver of
+            such right or provision. This Agreement operates to the fullest
+            extent permissible by law in accordance with the jurisdiction where
+            we are located and to the protections that you, as a user, are
+            entitled to in your jurisdiction. We reserve the right to assign any
+            or all of our liabilities, services, and obligations to another
+            party at any time. We shall not be responsible or liable for any
+            loss, damage, delay, or failure to act caused by an event beyond our
+            reasonable control.
+          </p>
+          <p>
+            If any provision, section, clause, or part of this Agreement is
+            determined to be unlawful, void, or unenforceable, that said portion
+            of this Agreement is determined to be severable and does not affect
+            the validity and enforceability of any remaining language.
+          </p>
+          <p>
+            It is understood that this Agreement does not create a joint
+            venture, partnership, employment, or agency relationship between you
+            and us, the website, or any of its services. You agree that this
+            Agreement will not be construed against us by virtue of having
+            drafted and published on the website for your review. Therefore, you
+            agree to waive any and all defenses that may have been assumed under
+            this Agreement and the lack of signing by any party hereto.
+          </p>
+          <p>
+            If this Agreement has been translated, you agree that its original
+            English text shall prevail in the case of a dispute.
           </p>
         </div>
       </DashboardLayout>
