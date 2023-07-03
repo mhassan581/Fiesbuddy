@@ -233,7 +233,7 @@ export default function ManageAnnouncements() {
                   <div className="form_col">
                     {/* FILE CATEGORY */}
                     <div className="form_group">
-                      <label htmlFor="time">Select File Category*</label>
+                      <label htmlFor="time">Select Time*</label>
                       <span className="icon_group">
                         <input
                           type="time"
