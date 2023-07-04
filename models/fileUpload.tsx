@@ -9,6 +9,7 @@ const fileUploadSchema = new mongoose.Schema(
     file: {
       type: String,
       required: true,
+      trim:true
     },
     fileCategory: {
       type: mongoose.Schema.Types.ObjectId,

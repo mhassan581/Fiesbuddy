@@ -20,7 +20,7 @@ const upload = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const fileParams = {
       Bucket: process.env.BUCKET_NAME,
-      Key: Date.now().toString() + "_" + name,
+      Key: Date.now().toString() + ".pdf",
       Expires: 600,
       ContentType: type,
     };
