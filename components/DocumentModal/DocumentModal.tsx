@@ -1,7 +1,7 @@
 import useModal from "@/hooks/UseModal";
 import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-
+//Update
 export default function DocumentModal(props: {
   documentURL: string;
   isOpen: boolean;
