@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].tsx", "utils/MongoDBClient.js", "pages/dashboard/event/[index.tsx]", "pages/admin/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].tsx", "utils/MongoDBClient.js", "pages/dashboard/event/[index.tsx]", "pages/admin/index.jsx", "components/DocumentModal/DocumentModal.js"],
   "exclude": ["node_modules"]
 }

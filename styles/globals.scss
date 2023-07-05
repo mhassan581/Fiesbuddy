@@ -720,7 +720,7 @@ section#dashboard_layout {
         }
 
         @media (max-width: 500px) {
-          img{
+          img {
             max-width: 200px;
           }
         }
@@ -1074,7 +1074,7 @@ section#dashboard_layout {
             @media (max-width: 500px) {
               .list_item {
                 padding: 15px 30px;
-                h4{
+                h4 {
                   font-size: 16px;
                 }
               }
@@ -1468,4 +1468,15 @@ section.document-modal {
 }
 
 section#manage_announcements {
+}
+
+.react-pdf__Document {
+  max-height: 100%;
+  overflow: auto;
+  .react-pdf__Page__canvas {
+    margin: 0 auto;
+  }
+  .react-pdf__Page__textContent,.react-pdf__Page__annotations {
+    display: none;
+  }
 }
