@@ -2,8 +2,6 @@ import Announcement from "@/models/announcement";
 import { connectToMongoDB } from "@/utils/mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 import mongoose, { Types } from "mongoose";
-import { Server } from "socket.io";
-let io;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   connectToMongoDB().catch((err) => res.json(err));

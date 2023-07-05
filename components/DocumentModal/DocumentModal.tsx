@@ -9,7 +9,7 @@ export default function DocumentModal(props: {
     <>
       <section className={`document-modal ${props.isOpen ? "active" : ""}`}>
         <div className="inner">
-          <iframe src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${props.documentURL}`} title="Document Frame"></iframe>
+          <iframe src={`${props.documentURL}`} title="Document Frame"></iframe>
           <span className="close-btn" onClick={props.toggle}></span>
         </div>
       </section>
