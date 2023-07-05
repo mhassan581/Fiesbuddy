@@ -39,6 +39,7 @@ export default function AnnouncementItem(props: {
   const { data: announcementsData, error: announcementsError } = useSWR(
     props.category as string,
     fetchAnnouncements,
+    { refreshInterval: 2000 }
   );
   const handleDelete = async (annID: string) => {
     const confirmDelete = confirm("Do you really want to delete this entry?");
